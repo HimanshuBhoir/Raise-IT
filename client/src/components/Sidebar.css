@@ -1,0 +1,32 @@
+/* 
+.issue{
+    background-color: #1DA1F2;
+    border: none !important;
+    color: white;
+    font-weight: 700 !important;
+    text-transform: inherit !important;
+    border-radius: 30px;
+    height: 50px;
+    width: 270px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+    text-align: center;
+} */
+
+.issue{
+    padding: 10px;
+    background-color: #1DA1F2;
+    border: none !important;
+    color: white;
+    font-weight: 700 !important;
+    border-radius: 30px;
+    width: 270px;
+    font-weight: 700;
+    font-size: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+}

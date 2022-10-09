@@ -1,0 +1,14 @@
+.issue{
+    background-color: #1DA1F2;
+    border: none !important;
+    color: white;
+    font-weight: 700 !important;
+    text-transform: inherit !important;
+    border-radius: 30px;
+    height: 50px;
+    width: 270px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+    align-content: center;
+} 

@@ -1,0 +1,22 @@
+.SidebarOption{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebarOption:hover{
+    background-color: azure;
+    border-radius: 30px;
+    color: #1DA1F2;
+    transition: color 100ms ease-out;
+    cursor: pointer;
+}
+
+.sidebarOption{
+    width: 270px;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
