@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {} from 'react'
 import useState from 'react-hook-use-state';
+import { useNavigate } from 'react-router-dom';
 import M from 'materialize-css'
 
 function Issue() {
 
+  const navigate = useNavigate()
   const [title,setTitle] = useState("")
   const [body,setBody] = useState("")
   const [image,setImage] = useState("")
-  const [url, setUrl] = useState("")
+  const [photo, setPhoto] = useState("")
 
   // for image upload-cloudnary
   const PostDetails = () => {
@@ -21,8 +23,12 @@ function Issue() {
     })
     .then(res => res.json())
     .then(data=>{
-      setUrl(data.url)
+      // console.log(data.url)
+      setPhoto(data.url)
+      setPhoto(data.url)
+      // console.log(photo)
       console.log("uploaded")
+      // navigate("/")
     })
     .catch(err=>{
       console.log(err)
@@ -37,7 +43,7 @@ function Issue() {
       body:JSON.stringify({
         title,
         body,
-        pic:url
+        photo
       })
     }).then(res => res.json())
     .then(data=>{
@@ -45,6 +51,8 @@ function Issue() {
         console.log(localStorage.getItem("jwt"))
         M.toast({html: data.error})
       }else{
+        console.log(photo)
+        console.log(title)
         M.toast({html:"Issued Succesfully"})
       }
     })

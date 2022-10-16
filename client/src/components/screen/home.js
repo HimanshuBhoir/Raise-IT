@@ -1,61 +1,54 @@
-import React from 'react'
+import React, { useEffect} from 'react'
+import useState from 'react-hook-use-state';
 import "./home.css"
 
-function home() {
+function Home() {
+
+  const [data, setData] = useState([])
+  useEffect(()=>{
+    fetch('http://localhost:5000/allpost',{
+      headers:{
+        "Authorization":"Bearer "+localStorage.getItem("jwt")
+      }
+    }).then(res=>res.json())
+    .then(result => {
+      // console.log(result)
+      setData(result.posts)
+    })
+  },[])
+
+
   return (
     <div className='home'>
+      {
+        data.map(item =>{
+          return( 
+            <div className='card home-card'>
+            <h4>{item.postedById.name}</h4>
+            
+            <div className='card card-img'>
+              <img style={{width:"600px", height:"300px"}}
+              src={item.photo} />
+            
+            </div>
 
-      <div className='card home-card'>
-        <h4>Raju Bhai</h4>
-        
-        <div className='card card-img'>
-          <img style={{width:"600px", height:"300px"}}
-          src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2019/03/13/801533-garbage-29.jpg" />
-        </div>
+            <div className='content'>
+              <i className='material-icons'>favorite_border</i>
+              <h6><b>{item.title}</b></h6>
+              <p>{item.body}</p>
+            </div>
 
-        <div className='content'>
-          <i className='material-icons'>favorite_border</i>
-          <p>This is the content for the picture the problem
-            or the report
-          </p>
-        </div>
+            <div className='comment'>
+              <input type="text" placeholder='Add a comment'/>
+            </div>
 
-        <div className='comment'>
-          <input type="text" placeholder='Add a comment'/>
-        </div>
-
-      </div>
-
-
-
-
-
-      <div className='card home-card'>
-        <h4>Raju Bhai</h4>
-        
-        <div className='card-img'>
-          <img style={{width:"600px", height:"300px"}}
-          src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2019/03/13/801533-garbage-29.jpg" />
-        </div>
-
-        <div className='content'>
-          <i className='material-icons'>favorite_border</i>
-          <p>This is the content for the picture the problem
-            or the report
-          </p>
-        </div>
-
-        <div className='comment'>
-          <input type="text" placeholder='Add a comment'/>
-        </div>
-
-      </div>
-
-
-
+          </div>
+          )
+        })
+      }
 
     </div>
   )
 }
 
-export default home
+export default Home

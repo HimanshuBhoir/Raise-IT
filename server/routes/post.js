@@ -5,7 +5,7 @@ const requireLogin = require('../middleware/requireLogin')
 const Post = mongoose.model("Post")
 
 
-router.get('/allpost',(req,res) => {
+router.get('/allpost',requireLogin,(req,res) => {
     Post.find()
     .populate("postedById","_id name")
     .then(posts => {
@@ -18,7 +18,7 @@ router.get('/allpost',(req,res) => {
 
 
 router.post('/createpost',requireLogin,(req,res) => {
-    const {title,body,pic} = req.body
+    const {title,body,photo} = req.body
     if(!title || !body){
         return res.status(422).json({error: "Please add all fields"})
     }
@@ -27,7 +27,7 @@ router.post('/createpost',requireLogin,(req,res) => {
     const post = new Post({
         title,
         body,
-        photo:pic,
+        photo,
         postedById: req.user
     })
     post.save().then(result => {
@@ -49,5 +49,6 @@ router.get('/mypost',requireLogin,(req,res) => {
         console.log(err)
     })
 })
+
 
 module.exports = router

@@ -1,10 +1,12 @@
-import React from 'react'
-import useState from 'react-hook-use-state';
+import React, { useContext, useState } from 'react'
+// import useState from 'react-hook-use-state';
 import {useNavigate} from 'react-router-dom'
 import M from 'materialize-css'
+import {UserContext} from '../../App'
 
 function Signin() {
 
+  const {state, dispatch} = useContext(UserContext)
   const navigate = useNavigate()
 
   const [name,setName] = useState("")
@@ -28,6 +30,7 @@ function Signin() {
       }else{
         localStorage.setItem("jwt",data.token)
         localStorage.setItem("user-details", JSON.stringify(data.user))
+        dispatch({type:"USER",payload:data.user})
         // console.log("jwt")
         // console.log(localStorage.getItem("user-details"))
         M.toast({html:"Singedin Succesfully"})
