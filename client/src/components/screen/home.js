@@ -67,7 +67,6 @@ function Home() {
     })
   }
 
-
   const makeComment =(text, postedById) =>{
     fetch('http://localhost:5000/comment',{
       method: "put",
@@ -95,16 +94,38 @@ function Home() {
     })
   }
 
+  const deletePost = (postid) => {
+    fetch(`http://localhost:5000/deletepost/${postid}`,{
+      method: "delete",
+      headers:{
+        Authorization:"Bearer " + localStorage.getItem("jwt")
+      }
+    }).then(res => res.json())
+    .then(result => {
+      console.log(result)
+      const newData = data.filter(item=>{
+        return item._id != result._id
+      })
+      setData(newData)
+    })
+  }
+
   return (
     <div className='home'>
       {
         data.map(item =>{
           return( 
             <div className='card home-card'>
-            <h4>{item.postedById.name}</h4>
+            <h4>{item.postedById.name} 
+            {item.postedById._id == state._id && <i className='material-icons' style={{float: "right"}} 
             
+            onClick={()=> {deletePost(item._id)}}
+             >delete</i>
+            }
+            </h4>
             <div className='card card-img'>
-              <img style={{width:"600px", height:"300px"}}
+              <img 
+              style={{width:"800px", height:"350px"}}
               src={item.photo} />
             
             </div>
@@ -127,7 +148,7 @@ function Home() {
               {
                 item.comments.map(record => {
                   return (
-                    <h6 key={record._id}><span style={{fontWeight:"500"}}>{record.postedById.name }</span> {record.text}</h6>
+                    <h6 key={record._id}><span style={{fontWeight:"500"}}><b>{record.postedById.name}</b></span> {record.text}</h6>
                   )
                 })
               }
