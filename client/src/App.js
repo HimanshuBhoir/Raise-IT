@@ -8,6 +8,9 @@ import Trending from "./components/screen/Trending"
 import Signup from "./components/screen/signup"
 import Profile from "./components/screen/Profile"
 import Issue from "./components/screen/post"
+import Search from "./components/screen/Search"
+import Explore from "./components/screen/Explore"
+import Notification from "./components/screen/Notification"
 import {initialState,reducer} from './reducers/userReducer'
 import Userprofile from "./components/screen/Userprofile"
 
@@ -36,6 +39,9 @@ const Routing = () => {
       <Route path = "/profile/:userid" element = {<Userprofile/>}/>
       <Route path = "/post" element = {<Issue/>}/>
       <Route path = "/trending" element = {<Trending/>}/>
+      <Route path = "/notification" element = {<Notification/>}/>
+      <Route path = "/explore" element = {<Explore/>}/>
+      <Route path = "/Search" element = {<Search/>}/>
     </Routes>
   )
 }
@@ -45,14 +51,15 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
-
     <div className="app">
       <UserContext.Provider value = {{state, dispatch}}>
-      
       <BrowserRouter>
-        <Sidebar/>
-        <Routing />
-
+        <div>
+          <Sidebar />
+        </div>
+        <div>
+          <Routing />
+        </div>
       </BrowserRouter>
 
       </UserContext.Provider>

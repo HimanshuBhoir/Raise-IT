@@ -21,11 +21,11 @@
     color: white;
     font-weight: 700 !important;
     border-radius: 30px;
-    width: 270px;
+    /* width: auto; */
+    width: 200px;
     font-weight: 700;
     font-size: 20px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 20px;
     display: flex;
     text-align: center;
     cursor: pointer;

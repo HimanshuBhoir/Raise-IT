@@ -4,13 +4,17 @@
 
 .images{
     height: auto;
-    max-height: 350px;
+    /* max-height: 500px; */
+    max-height: 40vw;
     width: auto;
-    max-width: 700px;
+    /* max-width: 500px; */
+    max-width: 90%;
     text-align: center;
     display: block;
     /* align-items: center; */
     margin: auto;
+    border-radius: 25px;
+    border: 2px solid black;
 
 }
 
@@ -28,8 +32,8 @@
 }
 
 
-.home_card{
-    max-width: 500px;
+.home-card{
+    border: 1px solid silver;
 }
 
 .content{
@@ -39,4 +43,11 @@
 .comment{
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.material-icons{
+    /* margin: 14px; */
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-top: 3px;
 }
