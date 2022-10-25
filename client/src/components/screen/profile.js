@@ -21,7 +21,7 @@ function Profile() {
 
   return (
     <div className='profile'>
-
+      <h1>Profile</h1>
       <div className='prof'>
         <img src="https://images.generated.photos/Q5t7FpzIrfn_NOwU1AG8-eCzw80EgwNTDNB74NToO2Y/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NTY5MjAzLmpwZw.jpg" 
           style={{width:"80px", height:"100px", borderRaius:"50px"}} />

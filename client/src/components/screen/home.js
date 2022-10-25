@@ -1,7 +1,9 @@
 import React, { useEffect, useContext} from 'react'
 import useState from 'react-hook-use-state';
-import "./home.css"
+import "./Home.css"
 import { UserContext } from '../../App'
+import {Link} from 'react-router-dom'
+import Issue from './post';
 
 function Home() {
 
@@ -111,12 +113,15 @@ function Home() {
   }
 
   return (
-    <div className='home'>
+  <>
+    <div className='card home'>
+      <h1>Home</h1>
+      <Issue/>
       {
         data.map(item =>{
           return( 
             <div className='card home-card'>
-            <h4>{item.postedById.name} 
+            <h4 className='username'><Link to ={item.postedById._id === state._id ? "/profile" : "/profile/"+item.postedById._id}>{item.postedById.name} </Link>
             {item.postedById._id == state._id && <i className='material-icons' style={{float: "right"}} 
             
             onClick={()=> {deletePost(item._id)}}
@@ -126,6 +131,7 @@ function Home() {
             <div className='card card-img'>
               <img 
               style={{width:"800px", height:"350px"}}
+              className='images'
               src={item.photo} />
             
             </div>
@@ -167,6 +173,7 @@ function Home() {
       }
 
     </div>
+  </>
   )
 }
 

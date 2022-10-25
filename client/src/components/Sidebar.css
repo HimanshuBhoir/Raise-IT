@@ -30,3 +30,7 @@
     text-align: center;
     cursor: pointer;
 }
+
+.sedebar{
+    position:fixed;
+}

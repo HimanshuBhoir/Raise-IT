@@ -45,7 +45,7 @@ function Sidebar() {
   }
 
   return (
-    <div className='sidebar'>
+    <div className='card sidebar'>
 
         <h3> Raise-IT</h3>
 
