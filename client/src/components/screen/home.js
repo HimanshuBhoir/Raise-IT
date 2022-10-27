@@ -117,7 +117,7 @@ function Home() {
   <>
     <div className='card home'>
       <h3> Home </h3>
-      <Issue/>
+      {/* <Issue/> */}
       {
         data.map(item =>{
           return( 
