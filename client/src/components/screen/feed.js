@@ -180,7 +180,7 @@ function Feed() {
                 makeComment(e.target[0].value, item._id)
             }}>
               
-              <input type="text" placeholder='Add a comment'/>
+              <input type="text" placeholder="Add Comment"/>
             </form>
 
           </div>

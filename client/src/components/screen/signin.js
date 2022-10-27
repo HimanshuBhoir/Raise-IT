@@ -34,7 +34,7 @@ function Signin() {
         // console.log("jwt")
         // console.log(localStorage.getItem("user-details"))
         M.toast({html:"Singedin Succesfully"})
-        navigate('/')
+        navigate('/home')
       }
     }).catch(err=>{
       console.log(err)

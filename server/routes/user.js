@@ -23,4 +23,33 @@ router.get('/user/:id',requireLogin, (req,res) => {
     })
 })
 
+
+router.put('/follow',requireLogin,(req,res) => {
+    User.findByIdAndUpdate(req.body.followId,{
+        $push:{followers:req.user._id}
+    },{new: true})
+    .then(result => {
+        res.json(result)
+    })
+    .catch(err => {
+        return res.status(422).json({error:err})
+    })
+})
+
+
+router.put('/unfollow',requireLogin,(req,res) => {
+    User.findByIdAndUpdate(req.body.followId,{
+        $pull:{followers:req.user._id}
+    },{new: true})
+    .then(result => {
+        res.json(result)
+    })
+    .catch(err => {
+        return res.status(422).json({error:err})
+    })
+})
+
+
+
+
 module.exports = router

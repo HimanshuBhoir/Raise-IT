@@ -32,8 +32,9 @@ const Routing = () => {
 
   return(
     <Routes>
-      <Route path = "/" element = {<Home/>}/>
+      <Route path = "/" element = {<Signin/>}/>
       <Route path = "/signin" element = {<Signin/>}/>
+      <Route path = "/home" element = {<Home/>}/>
       <Route path = "/signup" element = {<Signup/>}/>
       <Route exact path = "/profile" element = {<Profile/>}/>
       <Route path = "/profile/:userid" element = {<Userprofile/>}/>

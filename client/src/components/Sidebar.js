@@ -11,7 +11,7 @@ function Sidebar() {
   const renderList = () => {
     if(state){
       return[
-          <Link to ="/"><SidebarOptions text="Home" /></Link>,
+          <Link to ="/home"><SidebarOptions text="Home" /></Link>,
           <Link to ="/search"><SidebarOptions text="Search" /></Link>,
           <Link to ="/trending"><SidebarOptions text="Trending" /></Link>,
           <Link to ="/explore"><SidebarOptions text="Explore" /></Link>,
