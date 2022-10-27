@@ -66,6 +66,7 @@ router.post('/createpost',requireLogin,(req,res) => {
 router.get('/mypost',requireLogin,(req,res) => {
     Post.find({postedById:req.user._id})
     .populate("postedById","_id name")
+    .sort('-createdAt')
     .then(mypost => {
         res.json({mypost})
     })
