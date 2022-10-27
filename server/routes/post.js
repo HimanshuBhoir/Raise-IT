@@ -17,6 +17,29 @@ router.get('/allpost',requireLogin,(req,res) => {
     })
 })
 
+router.get('/subposts',requireLogin,(req,res) => {
+    Post.find({postedById:{$in:req.user.following}})
+    .populate("postedById","_id name")
+    .sort('-createdAt')
+    .then(posts => {
+        res.json({posts})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
+router.get('/trendpost',requireLogin,(req,res) => {
+    Post.find()
+    .populate("postedById","_id name")
+    .then(posts => {
+        res.json({posts})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
 
 router.post('/createpost',requireLogin,(req,res) => {
     const {title,body,photo} = req.body

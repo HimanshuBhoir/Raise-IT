@@ -5,19 +5,20 @@ import { UserContext } from '../../App'
 import {Link} from 'react-router-dom'
 import Issue from './post';
 
-function Trending() {
+function Reports() {
 
   const [data, setData] = useState([])
   const {state, dispatch} = useContext(UserContext) 
+  
   useEffect(()=>{
-    fetch('http://localhost:5000/trendpost',{
+    fetch('http://localhost:5000/mypost',{
       headers:{
         "Authorization":"Bearer "+localStorage.getItem("jwt")
       }
     }).then(res=>res.json())
     .then(result => {
       // console.log(result)
-      setData(result.posts)
+      setData(result.mypost)
     })
   },[])
 
@@ -115,6 +116,7 @@ function Trending() {
   return (
   <>
     <div className='card home'>
+      <h3>Reports</h3>
       {
         data.map(item =>{
           return( 
@@ -146,6 +148,7 @@ function Trending() {
               <i className='material-icons' style={{float: "right"}} 
                 onClick={()=> {}}
                 >comment</i>
+                
               {item.likes.includes(state._id)
               ? 
                 <i className='material-icons'
@@ -193,4 +196,4 @@ function Trending() {
   )
 }
 
-export default Trending
+export default Reports

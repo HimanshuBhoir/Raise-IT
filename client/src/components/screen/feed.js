@@ -146,6 +146,7 @@ function Feed() {
               <i className='material-icons' style={{float: "right"}} 
                 onClick={()=> {}}
                 >comment</i>
+                
               {item.likes.includes(state._id)
               ? 
                 <i className='material-icons'

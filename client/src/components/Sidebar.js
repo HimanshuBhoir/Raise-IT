@@ -13,6 +13,7 @@ function Sidebar() {
       return[
           <Link to ="/home"><SidebarOptions text="Home" /></Link>,
           <Link to ="/search"><SidebarOptions text="Search" /></Link>,
+          <Link to ="/reports"><SidebarOptions text="Reports" /></Link>,
           <Link to ="/trending"><SidebarOptions text="Trending" /></Link>,
           <Link to ="/explore"><SidebarOptions text="Explore" /></Link>,
           <Link to ="/notification"><SidebarOptions text="Notification" /></Link>,

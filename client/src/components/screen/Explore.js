@@ -116,6 +116,7 @@ function Explore() {
   return (
   <>
     <div className='card home'>
+      <h3>Explore</h3>
       {
         data.map(item =>{
           return( 

@@ -36,7 +36,7 @@ function Profile() {
         })
       }).then(res=>res.json())
       .then(data => {
-        dispatch({type:"UPDATE",payload:{followers:data.followers}})
+        dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
         // console.log(data)
         localStorage.setItem("user",JSON.stringify(data))
         setProfile((prevState) => {
@@ -65,7 +65,7 @@ function Profile() {
         })
       }).then(res=>res.json())
       .then(data => {
-        dispatch({type:"UPDATE",payload:{followers:data.followers}})
+        dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
         // console.log(data)
         localStorage.setItem("user",JSON.stringify(data))
         setProfile((prevState) => {
@@ -74,10 +74,11 @@ function Profile() {
             ...prevState,
             user:{
               ...prevState.user,
-            followers:newFollower
+              followers:newFollower
             }
           }
         })
+        setShowfollow(true)
       })
     }
 
@@ -94,8 +95,9 @@ function Profile() {
         </div>
 
         <div className='desc'>
-            <h5>{userProfile.posts.length}</h5>
-            <h5>{userProfile.user.followers.length} followers</h5>
+            <h5>{userProfile.posts.length} posts</h5>
+            <h5>{userProfile.user.followers.length} marchers</h5>
+            {/* <h5>{userProfile.user.following.length} following</h5> */}
             
             {showfollow
             ?

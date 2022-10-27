@@ -2,7 +2,10 @@ import React from 'react'
 
 function Notification() {
   return (
-    <div>Notification</div>
+    <div className='card notify'>
+      <h3>Notification</h3>
+      
+    </div>
   )
 }
 

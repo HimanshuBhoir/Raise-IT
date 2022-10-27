@@ -28,8 +28,9 @@ function ProfFeed() {
       </div>
 
       <div className='desc'>
-        This is the description of profile
-        2 post
+        <h6>{mypics.length}posts</h6>
+        <h6>{state?state.followers.length:"loading"} marchers</h6>
+        {/* <h6>{state?state.following.length:"loading"} following</h6> */}
       </div>
 
       <div className='self-posts'>

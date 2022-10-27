@@ -10,6 +10,7 @@ import Profile from "./components/screen/Profile"
 import Issue from "./components/screen/post"
 import Search from "./components/screen/Search"
 import Explore from "./components/screen/Explore"
+import Reports from "./components/screen/Reports"
 import Notification from "./components/screen/Notification"
 import {initialState,reducer} from './reducers/userReducer'
 import Userprofile from "./components/screen/Userprofile"
@@ -35,6 +36,7 @@ const Routing = () => {
       <Route path = "/" element = {<Signin/>}/>
       <Route path = "/signin" element = {<Signin/>}/>
       <Route path = "/home" element = {<Home/>}/>
+      <Route path = "/reports" element = {<Reports/>}/>
       <Route path = "/signup" element = {<Signup/>}/>
       <Route exact path = "/profile" element = {<Profile/>}/>
       <Route path = "/profile/:userid" element = {<Userprofile/>}/>
@@ -59,7 +61,7 @@ function App() {
           <Sidebar />
         </div>
         <div>
-          <Routing />
+          <Routing className = "compo" />
         </div>
       </BrowserRouter>
 
