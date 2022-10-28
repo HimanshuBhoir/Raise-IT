@@ -50,7 +50,7 @@ function ProfFeed() {
           .then(result=>{
             console.log(result)
           })
-          window.location.reload()
+          // window.location.reload()
         })
         .catch(err=>{
           console.log(err)
