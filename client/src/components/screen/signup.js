@@ -10,8 +10,20 @@ function Signup() {
 
   const [name,setName] = useState("")
   const [password,setPassword] = useState("")
+  const [image,setImage] = useState("")
+  const [photo, setPhoto] = useState(undefined)
 
   const PostData = () => {
+    if(image){
+      uploadPic()
+    }else{
+      uploadFields()
+    }
+
+    
+  }
+
+  const uploadFields = () => {
     fetch("http://localhost:5000/signup",{
       method:"post",
       headers:{
@@ -32,6 +44,46 @@ function Signup() {
     })
   }
 
+  const uploadPic = () => {
+    const data = new FormData()
+    data.append("file",image)
+    data.append("upload_preset","raise=it")
+    data.append("cloud_name","di7asyam5")
+    fetch("https://api.cloudinary.com/v1_1/di7asyam5/image/upload",{
+      method:"post",
+      body:data
+    })
+    .then(res => res.json())
+    .then(data=>{
+      setPhoto(data.url)
+      // console.log("uploaded")
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+
+    fetch("http://localhost:5000/signup",{
+      method:"post",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"Bearer " + localStorage.getItem("jwt")
+      },
+      body:JSON.stringify({
+        name,
+        password,
+        photo
+      })
+    }).then(res => res.json())
+    .then(data=>{
+      if(data.error){
+        M.toast({html: data.error})
+      }else{
+        M.toast({html:"Registerd Succesfully"})
+        console.log(photo)
+        navigate('/signin')
+      }
+    })
+  }
 
   return (
     <section className="card vh-100">
@@ -58,6 +110,18 @@ function Signup() {
                   onChange = {(e) => setPassword(e.target.value)}
                   />
                   <label className="form-label" htmlFor="pass">Password</label>
+                </div>
+                <div className="file-field input-field">
+
+                  <div className="btn">
+                    <span>Upload Profile</span>
+                    <input type="file" 
+                    onChange={(e)=> setImage(e.target.files[0])}
+                    />
+                  </div>
+                    <div className="file-path-wrapper">
+                      <input className="file-path validate" type="text" />
+                    </div>
                 </div>
                 <div className="text-center text-lg-start mt-4 pt-2">
                   <button type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}

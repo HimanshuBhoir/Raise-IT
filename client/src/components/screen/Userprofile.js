@@ -7,10 +7,11 @@ import './Profile.css'
 function Profile() {
 
 
-    const [showfollow, setShowfollow] = useState(true)
+    
     const [userProfile, setProfile] = useState(null)
     const {state,dispatch} = useContext(UserContext)
     const {userid} = useParams()
+    const [showfollow, setShowfollow] = useState(state?!state.following.includes(userid):true)
     // console.log(userid)
     useEffect(() => {
         fetch(`http://localhost:5000/user/${userid}`,{
@@ -89,7 +90,7 @@ function Profile() {
       <div className='profile'>
 
         <div className='prof'>
-          <img src="https://images.generated.photos/Q5t7FpzIrfn_NOwU1AG8-eCzw80EgwNTDNB74NToO2Y/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NTY5MjAzLmpwZw.jpg" 
+          <img src={userProfile.user.photo} 
             style={{width:"80px", height:"100px", borderRaius:"50px"}} />
             <h4>{userProfile.user.name}</h4>
         </div>

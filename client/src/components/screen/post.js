@@ -23,10 +23,8 @@ function Issue() {
     })
     .then(res => res.json())
     .then(data=>{
-      // console.log(data.url)
+      // setPhoto(data.url)
       setPhoto(data.url)
-      setPhoto(data.url)
-      // console.log(photo)
       console.log("uploaded")
       // navigate("/")
     })

@@ -7,7 +7,7 @@ export const reducer = (state, action) => {
     if(action.type === "CLEAR"){
         return null
     }
-    if(action.type = "UPDATE"){
+    if(action.type == "UPDATE"){
         return{
             ...state,
             following:action.payload.following,
@@ -15,5 +15,13 @@ export const reducer = (state, action) => {
             
         }
     }
+
+    if(action.type == "UPDATEPIC"){
+        return{
+            ...state,
+            photo:action.payload
+        }
+    }
+
     return state
 }

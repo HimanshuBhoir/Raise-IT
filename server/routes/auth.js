@@ -16,7 +16,7 @@ router.get('/protected', requireLogin, (req, res) => {
 })
 
 router.post('/signup',(req,res) => {
-    const {name, password} = req.body
+    const {name, password, photo} = req.body
     if(!name || !password){
         return res.status(422).json({error: "Please enter right values"})
     }
@@ -27,7 +27,8 @@ router.post('/signup',(req,res) => {
         }
         const user = new User({
             name,
-            password
+            password,
+            photo
         })
         user.save().then(user => {
             res.json({message: "User Saved"})
@@ -54,8 +55,8 @@ router.post('/signin',(req,res) => {
         if(password === savedUser.password){
             // res.json({message: "Successfully signed in"})
             const token = jwt.sign({_id:savedUser._id}, JWT_SECRET)
-            const {_id, name, followers, following} = savedUser
-            res.json({token, user:{_id, name, followers, following}})
+            const {_id, name, followers, following, photo} = savedUser
+            res.json({token, user:{_id, name, followers, following, photo}})
         }else{
             res.json({error: "Invalid name or password"})
         } 
