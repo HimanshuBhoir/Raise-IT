@@ -1,15 +1,46 @@
-import React, { useEffect, useContext} from 'react'
+import React, { useEffect, useContext, useRef} from 'react'
 import useState from 'react-hook-use-state';
 import "./Explore.css"
 import "./Home"
 import { UserContext } from '../../App'
 import {Link} from 'react-router-dom'
 import Issue from './post';
+import {useNavigate} from 'react-router-dom'
+import M from 'materialize-css'
+
 
 function Explore() {
 
   const [data, setData] = useState([])
   const {state, dispatch} = useContext(UserContext) 
+  const searchModel = useRef(null)
+  const [search, setSearch] = useState('')
+  const [userDetails, setUserdetails] = useState([])
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    M.Modal.init(searchModel.current)
+  },[])
+
+  const fetchUsers = (query) => {
+    setSearch(query)
+    fetch('http://localhost:5000/search-user',{
+      method: "post",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:JSON.stringify({
+        query
+      })
+    }).then(res=>res.json())
+    .then(result => {
+      // console.log(result)
+      setUserdetails(result.user)
+    })
+  }
+
+
+
   useEffect(()=>{
     fetch('http://localhost:5000/allpost',{
       headers:{
@@ -117,6 +148,33 @@ function Explore() {
   <>
     <div className='card home'>
       <h3>Explore</h3>
+
+      <button data-target="modal1" class="btn modal-trigger">Search</button>
+      <div id="modal1" className="modal" ref={searchModel}>
+          <div className="modal-content">
+            <input type="text" 
+              placeholder='Search User'
+              value={search}
+              onChange={(e) => fetchUsers(e.target.value)} 
+            />
+
+            <ul class="collection">
+              {userDetails.map(item => {
+                return(
+                  <>
+                    <button onClick={() => navigate("/profile/"+item._id)}>{item.name}</button>
+                    <hr/>
+                  </>
+                ) 
+              })}
+            </ul>
+
+          </div>
+          <div className="modal-footer">
+          <button> Close </button>          
+          </div>
+        </div>
+
       {
         data.map(item =>{
           return( 
