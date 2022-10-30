@@ -1,18 +1,44 @@
-import React, { useContext, useState } from 'react'
+import React, {useRef, useEffect, useContext, useState } from 'react'
 import {Link, Navigate, useNavigate} from 'react-router-dom'
 import { UserContext } from '../App';
 import './Sidebar.css'
 import SidebarOptions from './SidebarOptions';
+import M from 'materialize-css'
 
 function Sidebar() {
 
   const {state,dispatch} = useContext(UserContext)
   const navigate = useNavigate()
+  const searchModel = useRef(null)
+  const [search, setSearch] = useState('')
+  const [userDetails, setUserdetails] = useState([])
+
+  useEffect(() => {
+    M.Modal.init(searchModel.current)
+  },[])
+
+  const fetchUsers = (query) => {
+    setSearch(query)
+    fetch('http://localhost:5000/search-user',{
+      method: "post",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:JSON.stringify({
+        query
+      })
+    }).then(res=>res.json())
+    .then(result => {
+      // console.log(result)
+      setUserdetails(result.user)
+    })
+  }
+
   const renderList = () => {
     if(state){
       return[
           <Link to ="/home"><SidebarOptions text="Home" /></Link>,
-          <Link to ="/search"><SidebarOptions text="Search" /></Link>,
+          <button data-target="modal1" class="btn modal-trigger">Search</button>,
           <Link to ="/reports"><SidebarOptions text="Reports" /></Link>,
           <Link to ="/trending"><SidebarOptions text="Trending" /></Link>,
           <Link to ="/explore"><SidebarOptions text="Explore" /></Link>,
@@ -49,15 +75,40 @@ function Sidebar() {
   }
 
   return (
+    <>
+    
     <div className='card sidebar'>
-
       <h4>Raise-IT</h4>
       {renderList()}
-
-
-        {/* <button varient = "outlined" className='card issue' fullWidth>Issue</button> */}
-
     </div>
+
+      <div id="modal1" className="card modal" ref={searchModel}>
+          <div className="modal-content">
+            <input type="text" 
+              placeholder='Search User'
+              value={search}
+              onChange={(e) => fetchUsers(e.target.value)} 
+            />
+
+          <ul class="collection">
+            {userDetails.map(item => {
+              return(
+                <>
+                  <button onClick={() => navigate("/profile/"+item._id)}>{item.name}</button>
+                  <hr/>
+                </>
+              ) 
+            })}
+          </ul>
+
+        </div>
+        <div className="modal-footer">
+        <button> Close </button>          
+        </div>
+      </div>
+
+    </>
+    
   )
 }
 

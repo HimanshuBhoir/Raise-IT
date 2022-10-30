@@ -34,3 +34,9 @@
 .sedebar{
     position:fixed;
 }
+
+.modal{
+    /* display: flex; */
+    flex-direction: row;
+    /* flex: 1; */
+}
