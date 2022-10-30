@@ -9,7 +9,7 @@ function ProfFeed() {
     const [mypics, setPics] = useState([])
     const {state,dispatch} = useContext(UserContext)
     const [image, setImage] = useState("")
-    // const [photo, setPhoto] = useState(undefined)
+    const [photo, setPhoto] = useState(undefined)
     useEffect(() => {
         fetch('http://localhost:5000/mypost',{
         headers:{
@@ -33,10 +33,10 @@ function ProfFeed() {
         })
         .then(res => res.json())
         .then(data=>{
-          // setPhoto(data.url)
-          // console.log("uploaded" + data.url)
-          // localStorage.setItem("user",JSON.stringify({...state,photo:data.url}))
-          // dispatch({type:"UPDATEPIC",payload:data.url})
+          setPhoto(data.url)
+          console.log("uploaded" + data.url)
+          localStorage.setItem("user",JSON.stringify({...state,photo:data.url}))
+          dispatch({type:"UPDATEPIC",payload:data.url})
           fetch("http://localhost:5000/updatepic",{
           method:"put",
           headers:{
