@@ -59,7 +59,6 @@ import ProfFeed from './ProfFeed'
 function Profile() {
   return (
     <div>
-      <h3>Profile</h3>
       <ProfFeed/>
     </div>
   )

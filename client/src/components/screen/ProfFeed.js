@@ -60,47 +60,50 @@ function ProfFeed() {
 
   return (
     <div className='card profile'>
+      <h4>Profile</h4>
       
-      <div className='card desc'>
+      <div className='desc'>
       <div className='prof'>
         <img src={state?state.photo:"loading"} 
-          style={{width:"80px", height:"100px", borderRaius:"50px"}} />
+          style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:"200px", height:"200px", borderRadius:"50%"}} />
+           
+           <div className='desc'>
            <h4>{state?state.name:"loading"}</h4>
-            {/* <br/> */}
-      </div>
-
-      <div className="file-field input-field">
-
-                  <div className="btn">
-                    <span>Upload Profile</span>
-                    <input type="file" 
-                    onChange={(e)=> setImage(e.target.files[0])}
-                    />
+            <div className="file-field input-field">
+            <i className='material-icons' style={{float: "right"}} 
+                onClick={()=> {}}
+                >create</i> 
+            <div>
+                  <input type="file" 
+                  onChange={(e)=> setImage(e.target.files[0])}
+                  />
                   </div>
                     <div className="file-path-wrapper">
-                      <input className="file-path validate" type="text" />
+                      <input className="file-path validate" type="text"/>
                     </div>
-                </div>
-                <button onClick={() => updatePhoto()}> Update</button>
-
-      <div className='desc'>
+            </div>
+            <button onClick={() => updatePhoto()}> Update</button>
             <h6>{mypics.length}posts</h6>
             <h6>{state?state.followers.length:"loading"} marchers</h6>
-            {/* <h6>{state?state.following.length:"loading"} following</h6> */}
-          </div>
-
-
+           </div>
+           
+      
+      </div>
       </div>
       
       
-
+<hr/>
       <div className='self-posts'>
         {
         mypics.map(item => {
             return(
-                <img className='item' style={{width:"100px", height:"150px", borderRaius:"50px", padding:"20px"}} 
-                src={item.photo}
-                />
+              <div className='card item'>
+              <img 
+              style={{width:"150px", height:"150px", borderRadius:"13px"}} 
+                  src={item.photo}
+                  />
+                  <h6>{item.title}</h6>
+              </div>   
             )    
         })
         }

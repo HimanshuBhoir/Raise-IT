@@ -144,7 +144,7 @@ function Explore() {
 
   return (
   <>
-    <div className='card home'>
+    <div className='home'>
       <h3>Explore</h3>
 
       <button data-target="modal1" class="btn modal-trigger">Search</button>
@@ -175,7 +175,7 @@ function Explore() {
       {
         data.map(item =>{
           return( 
-            <div className='card home-card'>
+            <div className='home-card'>
             <h4 className='username'>
               <Link to ={item.postedById._id === state._id ? "/profile" : "/profile/"+item.postedById._id}>
               <img  classname="card prof-photo" src={item.postedById.photo}

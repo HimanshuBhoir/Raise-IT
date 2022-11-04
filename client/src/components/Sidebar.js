@@ -37,23 +37,21 @@ function Sidebar() {
   const renderList = () => {
     if(state){
       return[
-          <Link to ="/home" className='link'><SidebarOptions text="Home" /></Link>,
-          <button data-target="modal1" class="btn modal-trigger">Search</button>,
-          <Link to ="/reports" className='link'><SidebarOptions text="Reports" /></Link>,
-          <Link to ="/trending" className='link'><SidebarOptions text="Trending" /></Link>,
-          <Link to ="/explore" className='link'><SidebarOptions text="Explore" /></Link>,
+          <Link to ="/home" className='link'><SidebarOptions icon="home" text="Home" /></Link>,
+          <button data-target="modal1" className='modal-trigger srch'><SidebarOptions icon="search" text="Search"/></button>,          
+          <Link to ="/reports" className='link'><SidebarOptions icon="move_to_inbox" text="Reports" /></Link>,
+          <Link to ="/trending" className='link'><SidebarOptions icon="trending_up" text="Trending" /></Link>,
+          <Link to ="/explore" className='link'><SidebarOptions icon="open_in_new" text="Explore" /></Link>,
           // <Link to ="/notification"><SidebarOptions text="Notification" /></Link>,
-          <Link to ="/profile" className='link'><SidebarOptions text="Profile" /></Link>,
-          <Link to ="/more" className='link'><SidebarOptions text="More" /></Link>,
+          <Link to ="/profile" className='link'><SidebarOptions icon="person_outline" text="Profile" /></Link>,
+          <Link to ="/more" className='link'><SidebarOptions icon="more_horiz" text="More" /></Link>,
           // <Link to ="/post"><SidebarOptions text="Issue" className="issue" /></Link>,
           <button varient = "outlined" className = 'card issue fullWidth'
           onClick={()=>{
-              // localStorage.clear()
-              // dispatch({type:"CLEAR"})
-              // navigate("/signin")
               navigate("/post")
           }}
           >
+            <i className='material-icons'>mode_edit</i>
             Issue
           </button>,
           <button varient = "outlined" className = 'card issue fullWidth'
@@ -78,7 +76,10 @@ function Sidebar() {
     <>
     
     <div className='container sidebar'>
-      <h4>Raise-IT</h4>
+      <div className='logo'>
+      <i className='material-icons' style={{fontSize:"35px", color:"#1DA1F2"}}>pan_tool</i>
+      {/* <h4>Raise-IT</h4> */}
+      </div>
       {renderList()}
     </div>
 

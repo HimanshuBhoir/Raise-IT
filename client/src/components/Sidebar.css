@@ -15,16 +15,36 @@
 } */
 
 .issue{
-    padding: 10px;
+    padding: 5px;
+    gap: 5px;
     background-color: #1DA1F2;
     border: none !important;
     color: white;
-    font-weight: 500 !important;
+    font-weight: 700 !important;
     border-radius: 30px;
-    width: auto;
+    width: 100px;
     font-weight: 700;
     font-size: 20px;
-    margin: 20px;
+    /* margin: 20px; */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+}
+
+.srch{
+    border: none !important;
+    color: black;
+    font-weight: 500 !important;
+    background: none;
+    /* width: auto; */
+    display: inline-block;
+    padding: 0px 10px;
+    outline: none;
+    /* max-width: 300px; */
+    font-weight: 700;
+    font-size: 20px;
     display: flex;
     text-align: center;
     cursor: pointer;
@@ -41,8 +61,12 @@
 }
 
 .link {
-    color: rgb(2, 33, 2);
-  }
-  .link:hover {
-     /* color: darkolivegreen; */
-  }
+    color: black;
+}
+
+.logo{
+    display: block;
+    /* text-align: center; */
+    margin: 10px;
+    
+}

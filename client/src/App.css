@@ -1,12 +1,21 @@
 .app{
     display: flex;
+    justify-content: center;
+    align-items: 'center';
+    /* height: 100vh; */
 }
 .sidebar{
+    border: 1px solid white;
+    height: 100vh;
+    /* margin-left: 300px; */
     margin-top: 0px;
-    width: 200px;
+    /* width: 100%; */
+    width: 12vw;
     position: sticky;
     top:0;
 }
 .home{
-    width: 100%;
+    border: 1px solid silver;
+    /* width: 100%; */
+    width: 68vw;
 }

@@ -1,10 +1,14 @@
 import React from 'react'
 import './SidebarOptions.css'
 
-function SidebarOptions({text}) {
+function SidebarOptions({text, icon}) {
   return (
     <div className='sidebarOption'>
-        {text}
+      <div className='row'>
+      <i className='material-icons'>{icon}</i>
+      {text}
+      </div>
+      
     </div>
   )
 }
