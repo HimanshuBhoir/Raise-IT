@@ -3,14 +3,10 @@
 }
 .sidebar{
     margin-top: 0px;
-    width: 300px;
+    width: 200px;
     position: sticky;
     top:0;
 }
 .home{
-    width: 98%;
-}
-
-.notify{
-    width: 98%;
+    width: 100%;
 }

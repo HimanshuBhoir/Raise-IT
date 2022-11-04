@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    /* position: fixed; */
-    /* text-decoration: none; */
-    /* color:inherit; */
+    position: fixed;
+    text-decoration: none;
+    color:inherit;
 }
 
 .sidebarOption:hover{
@@ -16,7 +16,8 @@
 }
 
 .sidebarOption{
-    /* width: 270px; */
+    width: auto;
+    max-width: 300px;
     padding: 10px;
     font-weight: 700;
     font-size: 20px;

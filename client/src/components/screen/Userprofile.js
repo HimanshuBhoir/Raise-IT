@@ -2,12 +2,10 @@
 import React,{useEffect, useState, useContext} from 'react'
 import { useParams } from 'react-router-dom'
 import { UserContext } from '../../App'
-import './Profile.css'
+import './uerProfile.css'
 
 function Profile() {
 
-
-    
     const [userProfile, setProfile] = useState(null)
     const {state,dispatch} = useContext(UserContext)
     const {userid} = useParams()
@@ -87,19 +85,18 @@ function Profile() {
     <>
     {userProfile 
     ? 
-      <div className='profile'>
+      <div className='card userprofile'>
 
-        <div className='prof'>
-          <img src={userProfile.user.photo} 
-            style={{width:"80px", height:"100px", borderRaius:"50px"}} />
-            <h4>{userProfile.user.name}</h4>
-        </div>
-
-        <div className='desc'>
-            <h5>{userProfile.posts.length} posts</h5>
+        <div className='pro'>
+          <img className='card ph' src={userProfile.user.photo} 
+              style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:"200px", height:"200px", borderRadius:"50%"}} 
+              />
+          <div>
+          <h4>{userProfile.user.name}</h4>
+          <br/>
+          <h5>{userProfile.posts.length} posts</h5>
             <h5>{userProfile.user.followers.length} marchers</h5>
             {/* <h5>{userProfile.user.following.length} following</h5> */}
-            
             {showfollow
             ?
             <button 
@@ -108,17 +105,22 @@ function Profile() {
             :
             <button onClick={() => unfollowUser()}>Unfollow</button>
             }
-            
-  
+          </div>
         </div>
-
+        <hr/>
         <div className='self-posts'>
           {
           userProfile.posts.map(item => {
               return(
-                  <img className='item' style={{width:"100px", height:"150px", borderRaius:"50px", padding:"20px"}} 
-                  src={item.photo}
-                  />
+                <>
+                <div className='card item'>
+                <img 
+                style={{width:"150px", height:"150px", borderRadius:"13px"}} 
+                    src={item.photo}
+                    />
+                    <h6>{item.title}</h6>
+                </div>     
+                </>    
               )    
           })
           }

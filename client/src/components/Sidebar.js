@@ -37,14 +37,14 @@ function Sidebar() {
   const renderList = () => {
     if(state){
       return[
-          <Link to ="/home"><SidebarOptions text="Home" /></Link>,
+          <Link to ="/home" className='link'><SidebarOptions text="Home" /></Link>,
           <button data-target="modal1" class="btn modal-trigger">Search</button>,
-          <Link to ="/reports"><SidebarOptions text="Reports" /></Link>,
-          <Link to ="/trending"><SidebarOptions text="Trending" /></Link>,
-          <Link to ="/explore"><SidebarOptions text="Explore" /></Link>,
-          <Link to ="/notification"><SidebarOptions text="Notification" /></Link>,
-          <Link to ="/profile"><SidebarOptions text="Profile" /></Link>,
-          <Link to ="/more"><SidebarOptions text="More" /></Link>,
+          <Link to ="/reports" className='link'><SidebarOptions text="Reports" /></Link>,
+          <Link to ="/trending" className='link'><SidebarOptions text="Trending" /></Link>,
+          <Link to ="/explore" className='link'><SidebarOptions text="Explore" /></Link>,
+          // <Link to ="/notification"><SidebarOptions text="Notification" /></Link>,
+          <Link to ="/profile" className='link'><SidebarOptions text="Profile" /></Link>,
+          <Link to ="/more" className='link'><SidebarOptions text="More" /></Link>,
           // <Link to ="/post"><SidebarOptions text="Issue" className="issue" /></Link>,
           <button varient = "outlined" className = 'card issue fullWidth'
           onClick={()=>{
@@ -77,7 +77,7 @@ function Sidebar() {
   return (
     <>
     
-    <div className='card sidebar'>
+    <div className='container sidebar'>
       <h4>Raise-IT</h4>
       {renderList()}
     </div>

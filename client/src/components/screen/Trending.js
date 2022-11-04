@@ -119,7 +119,13 @@ function Trending() {
         data.map(item =>{
           return( 
             <div className='card home-card'>
-            <h4 className='username'><Link to ={item.postedById._id === state._id ? "/profile" : "/profile/"+item.postedById._id}>{item.postedById.name} </Link>
+            <h4 className='username'>
+              <Link to ={item.postedById._id === state._id ? "/profile" : "/profile/"+item.postedById._id}>
+              <img  classname="card prof-photo" src={item.postedById.photo}
+              style={{marginLeft:"3px",marginRight:"3px", width:"20px", height:"20px", borderRadius:"50px"}}
+              />
+              {item.postedById.name}
+              </Link>
             {item.postedById._id == state._id && <i className='material-icons' style={{float: "right"}} 
             
             onClick={()=> {deletePost(item._id)}}
@@ -129,7 +135,7 @@ function Trending() {
             <hr/>
             <div className='card-img'>
               <img 
-              style={{width:"800px", height:"350px"}}
+              style={{width:"700px", height:"350px"}}
               className='images'
               src={item.photo} />
             
@@ -137,7 +143,8 @@ function Trending() {
 
             <div className='content'>
         
-              <h6><b>{item.title}</b></h6>
+              <h6 style={{textAlign:"center"}}><b>{item.title}</b></h6>
+              <h6><b>{item.sub}</b></h6>
               <p>{item.body}</p>
 
               <hr/>

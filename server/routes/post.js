@@ -7,7 +7,7 @@ const Post = mongoose.model("Post")
 
 router.get('/allpost',requireLogin,(req,res) => {
     Post.find()
-    .populate("postedById","_id name")
+    .populate("postedById","_id name photo")
     .sort('-createdAt')
     .then(posts => {
         res.json({posts})
@@ -19,7 +19,7 @@ router.get('/allpost',requireLogin,(req,res) => {
 
 router.get('/subposts',requireLogin,(req,res) => {
     Post.find({postedById:{$in:req.user.following}})
-    .populate("postedById","_id name")
+    .populate("postedById","_id name photo")
     .sort('-createdAt')
     .then(posts => {
         res.json({posts})
@@ -31,7 +31,7 @@ router.get('/subposts',requireLogin,(req,res) => {
 
 router.get('/trendpost',requireLogin,(req,res) => {
     Post.find()
-    .populate("postedById","_id name")
+    .populate("postedById","_id name photo")
     .then(posts => {
         res.json({posts})
     })
@@ -42,14 +42,15 @@ router.get('/trendpost',requireLogin,(req,res) => {
 
 
 router.post('/createpost',requireLogin,(req,res) => {
-    const {title,body,photo} = req.body
-    if(!title || !body){
+    const {title,body,photo,sub} = req.body
+    if(!title || !body || !sub){
         return res.status(422).json({error: "Please add all fields"})
     }
     // console.log(req.user)
     // res.send("Ok")
     const post = new Post({
         title,
+        sub,
         body,
         photo,
         postedById: req.user
@@ -65,7 +66,7 @@ router.post('/createpost',requireLogin,(req,res) => {
 
 router.get('/mypost',requireLogin,(req,res) => {
     Post.find({postedById:req.user._id})
-    .populate("postedById","_id name")
+    .populate("postedById","_id name photo")
     .sort('-createdAt')
     .then(mypost => {
         res.json({mypost})

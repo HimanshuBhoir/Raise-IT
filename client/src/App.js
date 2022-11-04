@@ -1,5 +1,5 @@
 import "./App.css"
-import React,{useEffect, createContext, useReducer, useContext} from "react";
+import React,{useState, useEffect, createContext, useReducer, useContext} from "react";
 import Sidebar from "./components/Sidebar";
 import {BrowserRouter, Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import Signin from "./components/screen/signin"
@@ -42,7 +42,7 @@ const Routing = () => {
       <Route path = "/profile/:userid" element = {<Userprofile/>}/>
       <Route path = "/post" element = {<Issue/>}/>
       <Route path = "/trending" element = {<Trending/>}/>
-      <Route path = "/notification" element = {<Notification/>}/>
+      {/* <Route path = "/notification" element = {<Notification/>}/> */}
       <Route path = "/explore" element = {<Explore/>}/>
       <Route path = "/Search" element = {<Search/>}/>
     </Routes>
@@ -52,6 +52,18 @@ const Routing = () => {
 function App() {
 
   const [state, dispatch] = useReducer(reducer, initialState)
+  const [width, setWidth]   = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const updateDimensions = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+      console.log(width + " " + height)
+  }
+  useEffect(() => {
+      window.addEventListener("resize", updateDimensions);
+      return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
 
   return (
     <div className="app">

@@ -7,6 +7,7 @@ function Issue() {
 
   const navigate = useNavigate()
   const [title,setTitle] = useState("")
+  const [sub,setSub] = useState("")
   const [body,setBody] = useState("")
   const [image,setImage] = useState("")
   const [photo, setPhoto] = useState("")
@@ -41,6 +42,7 @@ function Issue() {
       body:JSON.stringify({
         title,
         body,
+        sub,
         photo
       })
     }).then(res => res.json())
@@ -50,7 +52,7 @@ function Issue() {
         M.toast({html: data.error})
       }else{
         console.log(photo)
-        console.log(title)
+        console.log(sub)
         M.toast({html:"Issued Succesfully"})
       }
     })
@@ -65,6 +67,11 @@ function Issue() {
       <input type="text" placeholder='Title here'
       value={title}
       onChange = {(e) => setTitle(e.target.value)}
+      />
+
+      <input type="text" placeholder='Subjected to'
+      value={sub}
+      onChange = {(e) => setSub(e.target.value)}
       />
 
       <input type="text" placeholder='Content here'
