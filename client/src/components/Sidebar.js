@@ -53,15 +53,15 @@ function Sidebar() {
         >
           Issue
         </button>,
-        // <button varient="outlined" className='card issue fullWidth'
-        //   onClick={() => {
-        //     localStorage.clear()
-        //     dispatch({ type: "CLEAR" })
-        //     navigate("/signin")
-        //   }}
-        // >
-        //   Logout
-        // </button>
+        <button varient="outlined" className='card issue fullWidth'
+          onClick={() => {
+            localStorage.clear()
+            dispatch({ type: "CLEAR" })
+            navigate("/signin")
+          }}
+        >
+          Logout
+        </button>
       ]
     } else {
       return [
