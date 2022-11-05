@@ -54,9 +54,14 @@
 }
 
 .username{
-    font-size: 20px;
+    font-size: 16px;
     font-style: italic;
     margin-top: 10px;
     align-items: flex-end;
     margin-bottom: 2px;
+}
+
+.usrnm{
+    color: black;
+    font-weight: 500;
 }

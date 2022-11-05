@@ -148,7 +148,7 @@ function Explore() {
       <h3>Explore</h3>
 
       <button data-target="modal1" class="btn modal-trigger">Search</button>
-      <div id="modal1" className="modal" ref={searchModel}>
+      {/* <div id="modal1" className="modal" ref={searchModel}>
           <div className="modal-content">
             <input type="text" 
               placeholder='Search User'
@@ -165,13 +165,13 @@ function Explore() {
                   </>
                 ) 
               })}
-            </ul>
+            </ul> */}
 
-          </div>
+          {/* </div>
           <div className="modal-footer">
           <button> Close </button>          
           </div>
-        </div>
+        </div> */}
       {
         data.map(item =>{
           return( 

@@ -1,6 +1,6 @@
 .pro{
     display : flex;
-    width: 100%;
+    /* width: 100%; */
     /* text-align: center; */
 }
 
@@ -16,21 +16,23 @@
 
 .userprofile{
     padding: 20px;
-    width: 84vw;
-    height: 97vh;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: 50vw;
+    height: 100vh;
+    border: 1px solid silver;
+    /* display: block; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 .item{
     height: auto;
     max-height: 50vw;
-    width: auto;
-    max-width: 100%;
+    /* width: auto; */
+    /* max-width: 100%; */
     text-align: center;
     display: block;
     border-radius: 25px;
+    border: 1px solid silver;
 }
 
 .self-posts{

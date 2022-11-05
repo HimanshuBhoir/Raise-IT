@@ -4,6 +4,7 @@
     align-items: 'center';
     /* height: 100vh; */
 }
+
 .sidebar{
     border: 1px solid white;
     height: 100vh;
@@ -14,8 +15,31 @@
     position: sticky;
     top:0;
 }
+
 .home{
     border: 1px solid silver;
     /* width: 100%; */
+    width: 50vw;
+}
+
+.profile{
+    border: 1px solid silver;
+    width: 50vw;
+}
+
+.recoms{
+    border: 1px solid white;
+    height: 100%;
+    width: 12vw;
+    /* position: sticky; */
+}
+
+.signin{
+    border: 1px solid silver;
     width: 68vw;
 }
+.userprofile{
+    border: 1px solid silver;
+    width: 68vw;
+}
+

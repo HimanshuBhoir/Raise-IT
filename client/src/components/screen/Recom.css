@@ -1,0 +1,24 @@
+.notify{
+    display: block;
+    padding: 4px;
+}
+
+.recoms{
+    display: inline-flexbox;
+    /* position: relative; */
+    padding: 5px;
+}
+
+.rm{
+    position: fixed;
+}
+
+.rem{
+    margin-top: 50px;
+    background: none;
+    border: none;
+    color: black;
+    font-weight: 600;
+    font-size: 15px;
+    position: fixed;
+}

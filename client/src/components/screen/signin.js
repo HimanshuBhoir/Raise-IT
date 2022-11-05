@@ -43,14 +43,8 @@ function Signin() {
 
 
   return (
-    <section className="card vh-100">
+    <section className="card signin">
         <div className="container-fluid h-custom">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-md-9 col-lg-6 col-xl-5">
-              <img style={{height:"40%", width:"600px"}}
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="img-fluid" alt="Sample image" />
-            </div>
-            <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form>
                 {/* Name input */}
                 <div className="form-outline mb-4">
@@ -76,8 +70,6 @@ function Signin() {
                   </button>
                 </div>
               </form>
-            </div>
-          </div>
         </div>
       </section>
   )

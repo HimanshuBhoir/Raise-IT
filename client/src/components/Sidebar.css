@@ -33,6 +33,65 @@
     cursor: pointer;
 }
 
+.srchline{
+    display: flex;
+    border: 1px solid grey;
+    border-radius: 9px;
+    background: lightgray;
+    color: black;
+}
+
+.modal{
+    background-color: silver;
+    border: 1px solid silver;
+    border-radius: 10px;
+}
+
+.sug{
+    border: none;
+    background-color: silver;
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+
+}
+
+.clear{
+    background: none;
+    border: none;
+    display: inline-flex;
+}
+
+.clear:visited { 
+    background: none; }
+
+.clear:focus { 
+    background: none; 
+}
+
+.clear:hover { 
+    background: none; 
+}
+
+.clear:active { 
+    background: none; 
+}
+
+.srch:visited { 
+    background: none; }
+
+.srch:focus { 
+    background: none; 
+}
+
+.srch:hover { 
+    background: none; 
+}
+
+.srch:active { 
+    background: none; 
+}
+
 .srch{
     border: none !important;
     color: black;
@@ -48,10 +107,6 @@
     display: flex;
     text-align: center;
     cursor: pointer;
-}
-
-.sedebar{
-    position:fixed;
 }
 
 .modal{

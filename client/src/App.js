@@ -1,7 +1,8 @@
 import "./App.css"
 import React,{useState, useEffect, createContext, useReducer, useContext} from "react";
 import Sidebar from "./components/Sidebar";
-import {BrowserRouter, Routes, Route, useNavigate, useParams} from 'react-router-dom'
+import Recommends from "./components/Recommends";
+import {BrowserRouter, Routes, Route, useNavigate, useParams, Link} from 'react-router-dom'
 import Signin from "./components/screen/signin"
 import Home from "./components/screen/Home"
 import Trending from "./components/screen/Trending"
@@ -11,7 +12,7 @@ import Issue from "./components/screen/post"
 import Search from "./components/screen/Search"
 import Explore from "./components/screen/Explore"
 import Reports from "./components/screen/Reports"
-import Notification from "./components/screen/Notification"
+import Notification from "./components/screen/Recom"
 import {initialState,reducer} from './reducers/userReducer'
 import Userprofile from "./components/screen/Userprofile"
 
@@ -59,10 +60,6 @@ function App() {
       setHeight(window.innerHeight);
       console.log(width + " " + height)
   }
-  useEffect(() => {
-      window.addEventListener("resize", updateDimensions);
-      return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
 
 
   return (
@@ -75,6 +72,7 @@ function App() {
         <div>
           <Routing className = "compo" />
         </div>
+        <Recommends/>
       </BrowserRouter>
 
       </UserContext.Provider>

@@ -116,7 +116,7 @@ function Home() {
   return (
   <>
     <div className='home'>
-      <h3> Home </h3>
+      <h5> Home </h5>
       {/* <Issue/> */}
       {
         data.map(item =>{
@@ -127,7 +127,7 @@ function Home() {
               <img  classname="card prof-photo" src={item.postedById.photo}
               style={{marginLeft:"3px",marginRight:"3px", width:"20px", height:"20px", borderRadius:"50px"}}
               />
-              {item.postedById.name}
+              <text className='usrnm'>{item.postedById.name}</text>
               </Link>
             {item.postedById._id == state._id && <i className='material-icons' style={{float: "right"}} 
             
@@ -179,7 +179,7 @@ function Home() {
               {
                 item.comments.map(record => {
                   return (
-                    <h6 key={record._id}><span style={{fontWeight:"500"}}><b><Link to ={item.postedById._id === state._id ? "/profile" : "/profile/"+item.postedById._id}>{record.postedById.name} </Link></b></span> {record.text}</h6>
+                    <h6 key={record._id}><span style={{fontWeight:"500"}}><b><Link to ={"/profile/"+record.postedById._id}>{record.postedById.name} </Link></b></span> {record.text}</h6>
                   )
                 })
               }

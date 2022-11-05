@@ -85,5 +85,17 @@ router.post('/search-user',(req,res) => {
     })
 })
 
+router.get('/recom',(req,res) => {
+    User.find()
+    .populate('name _id')
+    .sort('followers.length')
+    .then(user => {
+        res.json({user})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
 
 module.exports = router

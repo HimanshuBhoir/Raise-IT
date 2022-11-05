@@ -1,6 +1,6 @@
 .prof{
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     text-align: center;
 }
 
@@ -13,12 +13,12 @@
 }
 
 .profFeed{
-    width: 90%;
+    /* width: 90%; */
 }
 
 .pro{
     display : flex;
-    width: 100%;
+    /* width: 100%; */
     /* text-align: center; */
 }
 
@@ -34,8 +34,8 @@
 
 .profile{
     padding: 20px;
-    width: 84vw;
-    height: 97vh;
+    /* width: 84vw; */
+    height: 100vh;
     display: block;
     margin-left: auto;
     margin-right: auto;

@@ -85,7 +85,7 @@ function Profile() {
     <>
     {userProfile 
     ? 
-      <div className='card userprofile'>
+      <div className='userprofile'>
 
         <div className='pro'>
           <img className='card ph' src={userProfile.user.photo} 
