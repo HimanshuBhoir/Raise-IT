@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 // import useState from 'react-hook-use-state';
 import {useNavigate} from 'react-router-dom'
 import M from 'materialize-css'
+import './sign.css'
 import {UserContext} from '../../App'
 
 function Signin() {
@@ -43,34 +44,56 @@ function Signin() {
 
 
   return (
-    <section className="card signin">
-        <div className="container-fluid h-custom">
+    <section className="signin" style={{width:"50vw", height:"fit-content"}}>
+              
+              <div className='logo'>
+                <i className='large material-icons' style={{ fontSize: "60px", color: "#1DA1F2" }}>pan_tool</i>
+                <br/>
+                <text style={{ fontSize: "20px", color: "#1DA1F2" }}>Login to Rais-IT</text>
+                <br/>
+                <text style={{ fontSize: "12px"}}>We help you to raise your problme</text>
+              </div>
+              
               <form>
                 {/* Name input */}
-                <div className="form-outline mb-4">
-                  <input type="text" id="username" className="form-control form-control-lg" placeholder="Enter Username here" 
+                <div>
+                  <input type="text" className="uname" placeholder="Enter Username here" 
                   value = {name}
                   onChange = {(e) => setName(e.target.value)}
                   />
-                  <label className="form-label" htmlFor="username">Username</label>
+                  <label className='uname'>Username</label>
                 </div>
                 {/* Password input */}
-                <div className="form-outline mb-3">
-                  <input type="password" id="pass" className="form-control form-control-lg" placeholder="Enter password" 
+                <div>
+                  <input type="password" placeholder="Enter password" 
                   value = {password}
                   onChange = {(e) => setPassword(e.target.value)}
                   />
-                  <label className="form-label" htmlFor="pass">Password</label>
+                  <label>Password</label>
                 </div>
-                <div className="text-center text-lg-start mt-4 pt-2">
-                  <button type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}
+                <div className="text-center"
+                  style={{textAlign:"center"}}
+                >
+                  <button type="button" 
+                  style={{backgroundColor:"#1DA1F2", color:"white", fontWeight:"700", border:"none",
+                padding:"8px", borderRadius:"5px"}}
                   onClick = {() => PostData()}
                   >
                     Login
                   </button>
+                  
+                  <br/>
+                  <br/>
+
+                  <button
+                  style={{border:"none", backgroundColor:"white", fontWeight:"500", color:"#1DA1F2"}}
+                    onClick={() => navigate("/signup")}
+                  >
+                      Create Account?
+                  </button>
                 </div>
+                <br/>
               </form>
-        </div>
       </section>
   )
 }

@@ -46,14 +46,14 @@ function Sidebar() {
         <Link to="/profile" className='link'><SidebarOptions icon="person_outline" text="Profile" /></Link>,
         <Link to="/more" className='link'><SidebarOptions icon="more_horiz" text="More" /></Link>,
         // <Link to ="/post"><SidebarOptions text="Issue" className="issue" /></Link>,
-        <button varient="outlined" className='card issue fullWidth'
+        <button varient="outlined" className="issue"
           onClick={() => {
             navigate("/post")
           }}
         >
           Issue
         </button>,
-        <button varient="outlined" className='card issue fullWidth'
+        <button varient="outlined" className='logout fullwidth'
           onClick={() => {
             localStorage.clear()
             dispatch({ type: "CLEAR" })
@@ -61,12 +61,13 @@ function Sidebar() {
           }}
         >
           Logout
+          <i className="tiny material-icons">exit_to_app</i>
         </button>
       ]
     } else {
       return [
-        <Link to="/signin"><SidebarOptions text="SignIn" /></Link>,
-        <Link to="/signup"><SidebarOptions text="SignUp" /></Link>
+        // <Link to="/signin"><SidebarOptions text="SignIn" /></Link>,
+        // <Link to="/signup"><SidebarOptions text="SignUp" /></Link>
       ]
     }
   }
@@ -75,10 +76,13 @@ function Sidebar() {
     <>
 
       <div className='container sidebar'>
+        {state ?
         <div className='logo'>
           <i className='material-icons' style={{ fontSize: "35px", color: "#1DA1F2" }}>pan_tool</i>
-          {/* <h4>Raise-IT</h4> */}
         </div>
+        : ""
+        }
+
         {renderList()}
       </div>
 

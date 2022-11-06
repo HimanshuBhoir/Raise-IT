@@ -40,6 +40,19 @@ router.get('/trendpost',requireLogin,(req,res) => {
     })
 })
 
+router.get('/recent',requireLogin,(req,res) => {
+    Post.find()
+    .populate("postedById","_id name photo")
+    .sort('-createdAt')
+    .limit(1)
+    .then(posts => {
+        res.json({posts})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
 
 router.post('/createpost',requireLogin,(req,res) => {
     const {title,body,photo,sub} = req.body

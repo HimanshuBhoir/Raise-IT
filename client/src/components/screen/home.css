@@ -1,5 +1,5 @@
 .home{
-    padding: 20px;
+    /* padding: 20px; */
     border: 1px solid silver;
 }
 
@@ -64,4 +64,9 @@
 .usrnm{
     color: black;
     font-weight: 500;
+}
+
+.cm{
+    color: black;
+    font-style: italic;
 }

@@ -8,6 +8,7 @@ import Issue from './post';
 function Trending() {
 
   const [data, setData] = useState([])
+  const [cmnt, showCmnt] = useState(false)
   const {state, dispatch} = useContext(UserContext) 
   useEffect(()=>{
     fetch('http://localhost:5000/trendpost',{
@@ -151,7 +152,9 @@ function Trending() {
 
               <div>
               <i className='material-icons' style={{float: "right"}} 
-                onClick={()=> {}}
+                onClick={()=> {
+                  (cmnt) ? showCmnt(false) : showCmnt(true)
+                }}
                 >comment</i>
               {item.likes.includes(state._id)
               ? 
@@ -169,26 +172,30 @@ function Trending() {
               <h6>{item.likes.length} likes</h6>
               </div>
 
-              
+              <form onSubmit={(e) => {
+                e.preventDefault()
+                makeComment(e.target[0].value, item._id)
+                showCmnt(true)
+            }}>  
+            <input type="text" placeholder="Add Comment"/>
+            </form>
+            <div>
               <h6><b>Comments</b></h6>
               <hr/>
               {
                 item.comments.map(record => {
+                  if(cmnt){
                   return (
-                    <h6 key={record._id}><span style={{fontWeight:"500"}}><b><Link to ={item.postedById._id === state._id ? "/profile" : "/profile/"+item.postedById._id}>{record.postedById.name} </Link></b></span> {record.text}</h6>
+                    <h6 key={record._id}><Link to ={state._id === record.postedById._id ? "/profile" : "/profile/"+record.postedById._id}><b className='cm'>{record.postedById.name}</b></Link> {record.text}</h6>
                   )
+                  }
                 })
               }
+            </div>
               
             </div>
 
-            <form onSubmit={(e) => {
-                e.preventDefault()
-                makeComment(e.target[0].value, item._id)
-            }}>
-              
-              <input type="text" placeholder="Add Comment"/>
-            </form>
+            
 
           </div>
           )

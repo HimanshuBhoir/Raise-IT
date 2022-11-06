@@ -14,14 +14,24 @@ function Recom() {
       }
     }).then(res=>res.json())
     .then(result => {
-      console.log(result)
+      // console.log(result)
+      // const newData = data.map(item=>{
+      //   if(item._id == result._id){
+      //     return result.user
+      //   }else{
+      //     return item
+      //   }
+      // })
       setData(result.user)
+      // setData(newData)
     })
   },[])
 
   return (
-    <div className='notify'>
-      <h5 className='rm'>Recommended</h5>
+    <div className='notify' style={{marginTop:"300px"}}>
+      <div className='ch'>
+
+<h5 className='rm'>Recommended</h5>
         {
           data.map(item => {
             return(
@@ -39,6 +49,7 @@ function Recom() {
             )
           })
         }
+      </div>
       
     </div>
   )

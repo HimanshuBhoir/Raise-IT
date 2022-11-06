@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../App';
 import Recom from './screen/Recom'
+import Recent from './screen/Recent'
+import './screen/Recom.css'
 
 function Recommends() {
 
@@ -25,13 +27,24 @@ useEffect(()=>{
 },[])
 
   return (
-    <div className='notify'>
+    <div className='notif' style={{padding:"10px"}}>
+      <>
+      {data && state
+      ?
+      <Recent />
+      :
+      ""
+      }
+      </>
+      <>
       {data && state
       ?
       <Recom />
       :
       ""
       }
+      </>
+      
     </div>
   )
 }

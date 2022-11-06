@@ -116,7 +116,7 @@ function Home() {
   return (
   <>
     <div className='home'>
-      <h5> Home </h5>
+      <h5 style={{marginLeft:"5px"}}> Home </h5>
       {/* <Issue/> */}
       {
         data.map(item =>{
@@ -179,7 +179,7 @@ function Home() {
               {
                 item.comments.map(record => {
                   return (
-                    <h6 key={record._id}><span style={{fontWeight:"500"}}><b><Link to ={"/profile/"+record.postedById._id}>{record.postedById.name} </Link></b></span> {record.text}</h6>
+                    <h6 key={record._id}><Link to ={state._id === record.postedById._id ? "/profile" : "/profile/"+record.postedById._id}><b className='cm'>{record.postedById.name}</b></Link> {record.text}</h6>
                   )
                 })
               }

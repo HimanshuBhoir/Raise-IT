@@ -9,16 +9,18 @@
 
 .sidebarOption:hover{
     background-color: azure;
-    border-radius: 30px;
+    border-radius: 10px;
     color: #1DA1F2;
     transition: color 100ms ease-out;
     cursor: pointer;
 }
 
 .sidebarOption{
-    width: auto;
-    max-width: 300px;
+    /* width: auto; */
+    width: fit-content;
+    /* max-width: 300px; */
     /* padding: 1px; */
+    /* width: 100%; */
     font-weight: 750;
     font-size: 20px;
     margin-right: 20px;

@@ -1,0 +1,8 @@
+.uname.input-field input:focus + label {
+    color: red !important;
+  }
+  /* label underline focus color */
+  .row .input-field input:focus {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important
+  }
