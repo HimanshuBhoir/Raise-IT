@@ -8,6 +8,8 @@ import Issue from './post';
 function Home() {
 
   const [data, setData] = useState([])
+  const [cmnt, showCmnt] = useState(false)
+
   const {state, dispatch} = useContext(UserContext) 
   
   useEffect(()=>{
@@ -154,7 +156,7 @@ function Home() {
 
               <div>
               <i className='material-icons' style={{float: "right"}} 
-                onClick={()=> {}}
+                onClick={()=> {(cmnt) ? showCmnt(false) : showCmnt(true)}}
                 >comment</i>
                 
               {item.likes.includes(state._id)
@@ -173,26 +175,34 @@ function Home() {
               <h6>{item.likes.length} likes</h6>
               </div>
 
-              
-              <h6><b>Comments</b></h6>
+              <form onSubmit={(e) => {
+                e.preventDefault()
+                makeComment(e.target[0].value, item._id)
+                showCmnt(true)
+            }}>
+              <input type="text" placeholder="Add Comment"
+              style={{border:"1px solid whitesmoke", borderRadius:"6px"}}
+              />
+            </form>
               <hr/>
               {
                 item.comments.map(record => {
-                  return (
-                    <h6 key={record._id}><Link to ={state._id === record.postedById._id ? "/profile" : "/profile/"+record.postedById._id}><b className='cm'>{record.postedById.name}</b></Link> {record.text}</h6>
-                  )
+                  if(cmnt){
+                    return (
+                      <>
+                      {/* <b>comments</b> */}
+                      {/* <hr/> */}
+                      <text key={record._id}><Link to ={state._id === record.postedById._id ? "/profile" : "/profile/"+record.postedById._id}><b className='cm'>{record.postedById.name}</b></Link> {record.text}<br/></text>
+                      
+                      </>
+                    )
+                    }
                 })
               }
               
             </div>
 
-            <form onSubmit={(e) => {
-                e.preventDefault()
-                makeComment(e.target[0].value, item._id)
-            }}>
-              
-              <input type="text" placeholder="Add Comment"/>
-            </form>
+            
 
           </div>
           )

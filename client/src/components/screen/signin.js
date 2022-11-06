@@ -44,7 +44,7 @@ function Signin() {
 
 
   return (
-    <section className="signin" style={{width:"50vw", height:"fit-content"}}>
+    <section className="signin" style={{width:"50vw", height:"fit-content", border:"none"}}>
               
               <div className='logo'>
                 <i className='large material-icons' style={{ fontSize: "60px", color: "#1DA1F2" }}>pan_tool</i>
@@ -71,9 +71,7 @@ function Signin() {
                   />
                   <label>Password</label>
                 </div>
-                <div className="text-center"
-                  style={{textAlign:"center"}}
-                >
+                <div style={{textAlign:"center"}}>
                   <button type="button" 
                   style={{backgroundColor:"#1DA1F2", color:"white", fontWeight:"700", border:"none",
                 padding:"8px", borderRadius:"5px"}}

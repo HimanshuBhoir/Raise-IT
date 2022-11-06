@@ -20,10 +20,10 @@
     background-color: #1DA1F2;
     border: none !important;
     color: white;
-    font-weight: 700 !important;
-    border-radius: 30px;
-    width: 100px;
-    font-weight: 700;
+    font-weight: 500 !important;
+    border-radius: 10px;
+    width: fit-content;
+    /* font-weight: 100; */
     font-size: 20px;
     /* margin: 20px; */
     margin-left: auto;

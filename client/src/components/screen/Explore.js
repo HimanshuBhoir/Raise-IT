@@ -12,6 +12,7 @@ import M from 'materialize-css'
 function Explore() {
 
   const [data, setData] = useState([])
+  const [cmnt, showCmnt] = useState(false)
   const {state, dispatch} = useContext(UserContext) 
   const searchModel = useRef(null)
   const [search, setSearch] = useState('')
@@ -145,7 +146,7 @@ function Explore() {
   return (
   <>
     <div className='home'>
-      <h3>Explore</h3>
+      <h5>Explore</h5>
 
       <button data-target="modal1" class="btn modal-trigger">Search</button>
       {/* <div id="modal1" className="modal" ref={searchModel}>
@@ -181,7 +182,7 @@ function Explore() {
               <img  classname="card prof-photo" src={item.postedById.photo}
               style={{marginLeft:"3px",marginRight:"3px", width:"20px", height:"20px", borderRadius:"50px"}}
               />
-              {item.postedById.name}
+              <text className='usrnm'>{item.postedById.name}</text>
               </Link>
             {item.postedById._id == state._id && <i className='material-icons' style={{float: "right"}} 
             
@@ -208,7 +209,7 @@ function Explore() {
 
               <div>
               <i className='material-icons' style={{float: "right"}} 
-                onClick={()=> {}}
+                onClick={()=> {(cmnt) ? showCmnt(false) : showCmnt(true)}}
                 >comment</i>
               {item.likes.includes(state._id)
               ? 
@@ -224,7 +225,29 @@ function Explore() {
               <div>
               <h6 className='cmtlen' style={{float: "right"}}>{item.comments.length} comments</h6>
               <h6>{item.likes.length} likes</h6>
-              </div>              
+              </div>  
+                          
+              <form onSubmit={(e) => {
+                e.preventDefault()
+                makeComment(e.target[0].value, item._id)
+                showCmnt(true)
+            }}>  
+            <input type="text" placeholder="Add Comment"/>
+            </form>
+            <div>
+              <h6><b>Comments</b></h6>
+              <hr/>
+              {
+                item.comments.map(record => {
+                  if(cmnt){
+                  return (
+                    <h6 key={record._id}><Link to ={state._id === record.postedById._id ? "/profile" : "/profile/"+record.postedById._id}><b className='cm'>{record.postedById.name}</b></Link> {record.text}</h6>
+                  )
+                  }
+                })
+              }
+            </div>
+              
             </div>
           </div>
           )

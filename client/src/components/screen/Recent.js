@@ -31,15 +31,16 @@ useEffect(()=>{
                     src={item.photo} />
                     <br/>
                     <div className='postby'>
-                    <text className='usrnm' style={{position:"fixed"}}>
+                    <text className='usrm' style={{position:"fixed"}}>
                     Posted By :
                     <Link to ={"/profile/"+item.postedById._id}>
                     <img  classname="card prof-photo" src={item.postedById.photo}
                     style={{marginLeft:"3px",marginRight:"3px", width:"20px", height:"20px", borderRadius:"50px"}}
                     />
-                    </Link>
-                        {item.postedById.name}</text>
-                    <text className='ed' style={{position:"fixed"}}> Title : <b>{item.title}</b></text>
+                    <text style={{color:"#1DA1F2"}}><i>{item.postedById.name}</i></text>
+                    </Link>  
+                    </text>
+                    <text className='ed' style={{position:"fixed"}}> Title : <text style={{color:"#1DA1F2"}}><i>{item.title}</i></text></text>
                     </div>
                     
                     </div>

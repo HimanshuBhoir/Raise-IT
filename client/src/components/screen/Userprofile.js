@@ -88,7 +88,7 @@ function Profile() {
       <div className='userprofile'>
 
         <div className='pro'>
-          <img className='card ph' src={userProfile.user.photo} 
+          <img className='ph' src={userProfile.user.photo} 
               style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:"200px", height:"200px", borderRadius:"50%"}} 
               />
           <div>

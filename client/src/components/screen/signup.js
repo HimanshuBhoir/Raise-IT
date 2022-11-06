@@ -86,9 +86,15 @@ function Signup() {
   }
 
   return (
-    <section className="signup">
-        <div className="container-fluid h-custom">
-          <div className="row d-flex justify-content-center align-items-center h-100">
+    <section className="signup" style={{height:"fit-content", border:"none"}}>
+        
+        <div className='logo'>
+                <i className='large material-icons' style={{ fontSize: "60px", color: "#1DA1F2" }}>pan_tool</i>
+                <br/>
+                <text style={{ fontSize: "20px", color: "#1DA1F2" }}>Register to Rais-IT</text>
+                <br/>
+                <text style={{ fontSize: "12px"}}>We help you to raise your problme</text>
+              </div>
               <form>
                 {/* Name input */}
                 <div className="form-outline mb-4">
@@ -108,7 +114,10 @@ function Signup() {
                 </div>
                 <div className="file-field input-field">
 
-                  <div className="btn">
+                  <div className="btn"
+                  style={{backgroundColor:"#1DA1F2", color:"white", fontWeight:"100", border:"none",
+                  padding:"4px", borderRadius:"5px"}}
+                  >
                     <span>Upload Profile</span>
                     <input type="file" 
                     onChange={(e)=> setImage(e.target.files[0])}
@@ -118,21 +127,26 @@ function Signup() {
                       <input className="file-path validate" type="text" />
                     </div>
                 </div>
-                <div className="text-center text-lg-start mt-4 pt-2">
-                  <button type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}
+                <br/>
+                <div style={{textAlign:"center"}}>
+                  <button type="button"
+                  style={{backgroundColor:"#1DA1F2", color:"white", fontWeight:"700", border:"none",
+                  padding:"8px", borderRadius:"5px"}}
                   onClick = {() => PostData()}
                   >
                     Register
                   </button>
+                  <br/>
+                  <br/>
                   <button 
+                  style={{border:"none", backgroundColor:"white", fontWeight:"500", color:"#1DA1F2"}}
                   onClick={() => navigate("/signin")}
                   >
                     Already hava account?
                   </button>
                 </div>
+                <br/>
               </form>
-          </div>
-        </div>
       </section>
   )
 }

@@ -115,7 +115,8 @@ function Trending() {
 
   return (
   <>
-    <div className='card home'>
+    <div className='home'>
+      <h5>Trending</h5>
       {
         data.map(item =>{
           return( 
@@ -125,7 +126,7 @@ function Trending() {
               <img  classname="card prof-photo" src={item.postedById.photo}
               style={{marginLeft:"3px",marginRight:"3px", width:"20px", height:"20px", borderRadius:"50px"}}
               />
-              {item.postedById.name}
+              <text className='usrnm'>{item.postedById.name}</text>
               </Link>
             {item.postedById._id == state._id && <i className='material-icons' style={{float: "right"}} 
             

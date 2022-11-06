@@ -59,10 +59,10 @@ function ProfFeed() {
 
 
   return (
-    <div className='card profile'>
-      <h4>Profile</h4>
-      
-      <div className='desc'>
+    <div className='profile'>
+      <h5 style={{marginLeft:"10px"}}>Profile</h5>
+      <br/>
+      <div className='dec'>
       <div className='prof'>
         <img src={state?state.photo:"loading"} 
           style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:"200px", height:"200px", borderRadius:"50%"}} />

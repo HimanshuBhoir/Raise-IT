@@ -1,5 +1,6 @@
 .pro{
     display : flex;
+    padding-left: 20px;
     /* width: 100%; */
     /* text-align: center; */
 }
@@ -11,11 +12,12 @@
     max-width: 90%;
     text-align: center;
     display: block;
-    border-radius: 25px;
+    /* border-radius: 25px; */
+    /* border: 1px solid silver; */
 }
 
 .userprofile{
-    padding: 20px;
+    padding-top: 20px;
     width: 50vw;
     height: 100vh;
     border: 1px solid silver;
