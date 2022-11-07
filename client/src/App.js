@@ -12,7 +12,7 @@ import Issue from "./components/screen/post"
 import Search from "./components/screen/Search"
 import Explore from "./components/screen/Explore"
 import Reports from "./components/screen/Reports"
-import Notification from "./components/screen/Recom"
+import More from "./components/screen/More"
 import {initialState,reducer} from './reducers/userReducer'
 import Userprofile from "./components/screen/Userprofile"
 
@@ -21,6 +21,7 @@ export const UserContext = createContext()
 const Routing = () => {
   
   const navigate = new useNavigate()
+  const width = window.innerWidth
   const {state, dispatch} = useContext(UserContext)
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"))
@@ -43,7 +44,7 @@ const Routing = () => {
       <Route path = "/profile/:userid" element = {<Userprofile/>}/>
       <Route path = "/post" element = {<Issue/>}/>
       <Route path = "/trending" element = {<Trending/>}/>
-      {/* <Route path = "/notification" element = {<Notification/>}/> */}
+      <Route path = "/more" element = {<More/>}/>
       <Route path = "/explore" element = {<Explore/>}/>
       <Route path = "/Search" element = {<Search/>}/>
     </Routes>
@@ -72,7 +73,11 @@ function App() {
         <div>
           <Routing className = "compo" />
         </div>
-        <Recommends/>
+        
+        {
+        (width > 450) ? <Recommends/> : ""
+
+        }
       </BrowserRouter>
 
       </UserContext.Provider>

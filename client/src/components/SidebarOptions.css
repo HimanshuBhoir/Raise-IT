@@ -1,8 +1,9 @@
 .SidebarOption{
     display: flex;
     align-items: center;
+    /* text-align: right; */
     cursor: pointer;
-    position: fixed;
+    /* position: fixed; */
     text-decoration: none;
     color:inherit;
 }
@@ -18,6 +19,7 @@
 .sidebarOption{
     /* width: auto; */
     width: fit-content;
+    /* width: 100%; */
     /* max-width: 300px; */
     /* padding: 1px; */
     /* width: 100%; */
@@ -25,11 +27,11 @@
     font-size: 19px;
     /* margin-left: auto; */
     /* margin-right: auto; */
-    margin-right: 20px;
-    margin-left: 10px;
+    margin-right: 6px;
+    /* margin-left: 10px; */
 }
 
 .row{
     display: flex;
-    gap: 5px;
+    /* gap: 5px; */
 }

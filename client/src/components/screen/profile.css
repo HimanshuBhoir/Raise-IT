@@ -11,6 +11,12 @@
 
 .item{
     padding: 10px;
+    /* background: whitesmoke; */
+    background: none;
+}
+
+.item:hover{
+    background: whitesmoke;
 }
 
 .prof{

@@ -2,12 +2,14 @@
 import React,{useEffect, useState, useContext} from 'react'
 import { UserContext } from '../../App'
 import './Profile.css'
+import { useNavigate } from 'react-router-dom'
 import M from 'materialize-css'
 
 function ProfFeed() {
 
     const [mypics, setPics] = useState([])
     const {state,dispatch} = useContext(UserContext)
+    const navigate = useNavigate()
     const [image, setImage] = useState("")
     const [photo, setPhoto] = useState(undefined)
     useEffect(() => {
@@ -59,7 +61,7 @@ function ProfFeed() {
 
 
   return (
-    <div className='profile'>
+    <div className='profile' style={{width:(window.innerWidth < 450 ? "80vw" : "50vw")}}>
       <h5 style={{marginLeft:"10px"}}>Profile</h5>
       <br/>
       <div className='dec'>
@@ -97,13 +99,15 @@ function ProfFeed() {
         {
         mypics.map(item => {
             return(
-              <div className='card item'>
+              <button className='item'
+              onClick={() => {navigate("/reports")}}
+              >
               <img 
-              style={{width:"150px", height:"150px", borderRadius:"13px"}} 
+              style={{width:(window.innerWidth > 450 ? "150px" : "90px"), height:(window.innerWidth> 450 ? "150px" : "70px"), borderRadius:"13px"}} 
                   src={item.photo}
                   />
                   <h6>{item.title}</h6>
-              </div>   
+              </button>   
             )    
         })
         }

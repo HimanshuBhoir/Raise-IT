@@ -115,7 +115,7 @@ function Trending() {
 
   return (
   <>
-    <div className='home'>
+    <div className='home' style={{width:(window.innerWidth < 450 ? "80vw" : "50vw")}}>
       <h5>Trending</h5>
       {
         data.map(item =>{

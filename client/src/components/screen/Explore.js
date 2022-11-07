@@ -14,6 +14,7 @@ function Explore() {
   const [data, setData] = useState([])
   const [cmnt, showCmnt] = useState(false)
   const {state, dispatch} = useContext(UserContext) 
+  const width = window.innerWidth
   const searchModel = useRef(null)
   const [search, setSearch] = useState('')
   const [userDetails, setUserdetails] = useState([])
@@ -145,8 +146,8 @@ function Explore() {
 
   return (
   <>
-    <div className='home'>
-      <h5>Explore</h5>
+    <div className='home' style={{width:(width < 450 ? "80vw" : "50vw")}}>
+      <h5 style={{paddingLeft:"5px"}}>Explore</h5>
 
       <button data-target="modal1" class="btn modal-trigger">Search</button>
       {/* <div id="modal1" className="modal" ref={searchModel}>

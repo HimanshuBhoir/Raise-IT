@@ -2,6 +2,7 @@ import React, {} from 'react'
 import useState from 'react-hook-use-state';
 import { useNavigate } from 'react-router-dom';
 import M from 'materialize-css'
+import './post.css'
 
 function Issue() {
 
@@ -62,41 +63,47 @@ function Issue() {
 
 
   return (
-    <div className='card Issue'>
-
-      <input type="text" placeholder='Title here'
+    <div className='Issue' style={{width:(window.innerWidth < 450 ? "80vw" : "50vw")}}>
+      <h5 style={{paddingLeft:"5px",paddingBottom:"10px",borderBottom:"1px solid silver"}}>Issue your problems here</h5>
+      <div className='dess'>
+      <input type="text" placeholder='Title here (Eg. Topic Name)'
       value={title}
       onChange = {(e) => setTitle(e.target.value)}
       />
 
-      <input type="text" placeholder='Subjected to'
+      <input type="text" placeholder='Subjected To (Eg. Authority, Department, Region)'
       value={sub}
       onChange = {(e) => setSub(e.target.value)}
       />
 
-      <input type="text" placeholder='Content here'
+      <textarea className='des' 
+      rows= {window.innerWidth < 450 ? "5" : "15"} 
+      cols="40"
+      placeholder='Content here'
       value={body}
       onChange = {(e) => setBody(e.target.value)}
       />
       <div className="file-field input-field">
 
-        <div className="btn">
-          <span>Upload Image</span>
+        <div>
+          {/* <span>Upload Image</span> */}
           <input type="file" 
           onChange={(e)=> setImage(e.target.files[0])}
           />
         </div>
           <div className="file-path-wrapper">
-            <input className="file-path validate" type="text" />
+            <input placeholder='Upload Image' className="file-path validate" type="text" />
           </div>
       </div>
 
-      <button className='issue'
+      <button className='sub'
+      style={{backgroundColor:"#1DA1F2", color:"white", fontWeight:"700", border:"none",
+      padding:"8px", borderRadius:"5px"}}
       onClick={()=>PostDetails()}
       >
-      Submit Issue
+      Issue
       </button>
-
+    </div>
       
 
     </div>

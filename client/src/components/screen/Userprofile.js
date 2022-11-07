@@ -1,11 +1,12 @@
 // import React from 'react'
 import React,{useEffect, useState, useContext} from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { UserContext } from '../../App'
 import './uerProfile.css'
 
 function Profile() {
 
+    const navigate = useNavigate()
     const [userProfile, setProfile] = useState(null)
     const {state,dispatch} = useContext(UserContext)
     const {userid} = useParams()
@@ -85,7 +86,7 @@ function Profile() {
     <>
     {userProfile 
     ? 
-      <div className='userprofile'>
+      <div className='userprofile' style={{width:(window.innerWidth < 450 ? "80vw" : "50vw")}} >
 
         <div className='pro'>
           <img className='ph' src={userProfile.user.photo} 
@@ -113,13 +114,15 @@ function Profile() {
           userProfile.posts.map(item => {
               return(
                 <>
-                <div className='card item'>
+                <button className='item'
+                onClick={() => {navigate("/home")}}
+                >
                 <img 
-                style={{width:"150px", height:"150px", borderRadius:"13px"}} 
+                style={{width:(window.innerWidth > 450 ? "150px" : "90px"), height:(window.innerWidth> 450 ? "150px" : "70px"), borderRadius:"13px"}} 
                     src={item.photo}
                     />
                     <h6>{item.title}</h6>
-                </div>     
+                </button>     
                 </>    
               )    
           })

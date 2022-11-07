@@ -20,7 +20,7 @@
     background-color: #1DA1F2;
     border: none !important;
     color: white;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     border-radius: 10px;
     width: fit-content;
     /* font-weight: 100; */
@@ -31,6 +31,10 @@
     display: flex;
     text-align: center;
     cursor: pointer;
+}
+
+.issue:focus{
+    background: #1DA1F2;
 }
 
 .srchline{
@@ -49,12 +53,20 @@
 
 .sug{
     border: none;
-    background-color: silver;
+    /* background-color: silver; */
     color: black;
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 400;
 
 }
+
+.sug:hover{
+    color: #1DA1F2;
+    font-weight: 700;
+    background: none;
+}
+
+
 
 .clear{
     background: none;
@@ -137,6 +149,7 @@
     display: flex;
     flex-direction: row;
     flex: 1;
+    background: whitesmoke;
 }
 
 .link {

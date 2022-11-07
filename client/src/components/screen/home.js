@@ -9,7 +9,7 @@ function Home() {
 
   const [data, setData] = useState([])
   const [cmnt, showCmnt] = useState(false)
-
+  const width = window.innerWidth
   const {state, dispatch} = useContext(UserContext) 
   
   useEffect(()=>{
@@ -19,7 +19,7 @@ function Home() {
       }
     }).then(res=>res.json())
     .then(result => {
-      console.log(result)
+      // console.log(result)
       setData(result.posts)
     })
   },[])
@@ -85,7 +85,7 @@ function Home() {
       })
     }).then(res=>res.json())
     .then(result => {
-      console.log(result)
+      // console.log(result)
       const newData = data.map(item=>{
         if(item._id == result._id){
           return result
@@ -117,7 +117,7 @@ function Home() {
 
   return (
   <>
-    <div className='home'>
+    <div className='home' style={{width:(width < 450 ? "80vw" : "50vw")}}>
       <h5 style={{marginLeft:"5px"}}> Home </h5>
       {/* <Issue/> */}
       {

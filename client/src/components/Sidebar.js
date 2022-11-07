@@ -8,6 +8,7 @@ import M from 'materialize-css'
 function Sidebar() {
 
   const { state, dispatch } = useContext(UserContext)
+  const width = window.innerWidth
   const navigate = useNavigate()
   const searchModel = useRef(null)
   const [search, setSearch] = useState('')
@@ -37,32 +38,32 @@ function Sidebar() {
   const renderList = () => {
     if (state) {
       return [
-        <Link to="/home" className='link'><SidebarOptions icon="home" text="Home" /></Link>,
-        <button data-target="modal1" className='modal-trigger srch'><SidebarOptions icon="search" text="Search" /></button>,
-        <Link to="/reports" className='link'><SidebarOptions icon="move_to_inbox" text="Reports" /></Link>,
-        <Link to="/trending" className='link'><SidebarOptions icon="trending_up" text="Trending" /></Link>,
-        <Link to="/explore" className='link'><SidebarOptions icon="open_in_new" text="Explore" /></Link>,
-        // <Link to ="/notification"><SidebarOptions text="Notification" /></Link>,
-        <Link to="/profile" className='link'><SidebarOptions icon="person_outline" text="Profile" /></Link>,
-        <Link to="/more" className='link'><SidebarOptions icon="more_horiz" text="More" /></Link>,
+        <Link to="/home" className='link'><SidebarOptions icon="home" text= {width < 450 ? "" : "Home"} /></Link>,
+        <button data-target="modal1" className='modal-trigger srch'><SidebarOptions icon="search" text={width < 450 ? "" : "Search"} /></button>,
+        <Link to="/reports" className='link'><SidebarOptions icon="move_to_inbox" text={width < 450 ? "" : "Reports"} /></Link>,
+        <Link to="/trending" className='link'><SidebarOptions icon="trending_up" text={width < 450 ? "" : "Trending"} /></Link>,
+        <Link to="/explore" className='link'><SidebarOptions icon="open_in_new" text={width < 450 ? "" : "Explore"} /></Link>,
+        // <Link to ="/notification"><SidebarOptions text={width < 400 ? "" : "Notification" /></Link>,
+        <Link to="/profile" className='link'><SidebarOptions icon="person_outline" text={width < 450 ? "" : "Profile"} /></Link>,
+        <Link to="/more" className='link'><SidebarOptions icon="more_horiz" text={width < 450 ? "" : "More"} /></Link>,
         // <Link to ="/post"><SidebarOptions text="Issue" className="issue" /></Link>,
-        <button varient="outlined" className="issue"
+        <button className="issue"
           onClick={() => {
             navigate("/post")
           }}
         >
           Issue
-        </button>,
-        <button varient="outlined" className='logout fullwidth'
-          onClick={() => {
-            localStorage.clear()
-            dispatch({ type: "CLEAR" })
-            navigate("/signin")
-          }}
-        >
-          Logout
-          <i className="tiny material-icons">exit_to_app</i>
         </button>
+        // <button varient="outlined" className='logout fullwidth'
+        //   onClick={() => {
+        //     localStorage.clear()
+        //     dispatch({ type: "CLEAR" })
+        //     navigate("/signin")
+        //   }}
+        // >
+        //   {width > 450 ? "Logout" : ""}
+        //   <i className="tiny material-icons">exit_to_app</i>
+        // </button>
       ]
     } else {
       return [
@@ -75,7 +76,7 @@ function Sidebar() {
   return (
     <>
 
-      <div className='container sidebar'>
+      <div className='sidebar'>
         {state ?
         <div className='logo'>
           <i className='material-icons' style={{ fontSize: "35px", color: "#1DA1F2" }}>pan_tool</i>
@@ -88,9 +89,13 @@ function Sidebar() {
 
       <div id="modal1" className="modal" ref={searchModel}>
         <div className="modal-content">
-          <div className='srchline'>
+          <div className='srchline' 
+          style={{backgroundColor:"whitesmoke"}}
+          >
             <i className='material-icons'>search</i>
-            <input type="text"
+            <input 
+            style={{fontWeight:"600"}}
+            type="text"
               placeholder='Search User'
               value={search}
               onChange={(e) => fetchUsers(e.target.value)}

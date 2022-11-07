@@ -2,14 +2,67 @@ import React, { useEffect, useContext} from 'react'
 import useState from 'react-hook-use-state';
 import "./Home.css"
 import { UserContext } from '../../App'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Issue from './post';
+import M from 'materialize-css'
 
 function Reports() {
 
   const [data, setData] = useState([])
   const [cmnt, showCmnt] = useState(false)
   const {state, dispatch} = useContext(UserContext) 
+  const navigate = useNavigate()
+  const [title,setTitle] = useState("")
+  const [sub,setSub] = useState("")
+  const [body,setBody] = useState("")
+  const [image,setImage] = useState("")
+  const [photo, setPhoto] = useState("")
+
+  // for image upload-cloudnary
+  const PostDetails = () => {
+    const data = new FormData()
+    data.append("file",image)
+    data.append("upload_preset","raise=it")
+    data.append("cloud_name","di7asyam5")
+    fetch("https://api.cloudinary.com/v1_1/di7asyam5/image/upload",{
+      method:"post",
+      body:data
+    })
+    .then(res => res.json())
+    .then(data=>{
+      // setPhoto(data.url)
+      setPhoto(data.url)
+      console.log("uploaded")
+      // navigate("/")
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+
+    fetch("http://localhost:5000/createpost",{
+      method:"post",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"Bearer " + localStorage.getItem("jwt")
+      },
+      body:JSON.stringify({
+        title,
+        body,
+        sub,
+        photo
+      })
+    }).then(res => res.json())
+    .then(data=>{
+      if(data.error){
+        console.log(localStorage.getItem("jwt"))
+        M.toast({html: data.error})
+      }else{
+        console.log(photo)
+        console.log(sub)
+        M.toast({html:"Issued Succesfully"})
+      }
+    })
+  }
   
   useEffect(()=>{
     fetch('http://localhost:5000/mypost',{
@@ -116,9 +169,46 @@ function Reports() {
 
   return (
   <>
-    <div className='home'>
+    <div className='home' style={{width:(window.innerWidth < 450 ? "80vw" : "50vw")}}>
       <h5>Reports</h5>
-      <Issue/>
+      <div className='dess' style={{padding:"15px",border:"1px solid silver"}}>
+        <text style={{fontSize:"15px"}}>Issue your problems</text>
+      <input type="text" placeholder='Title here (Eg. Topic Name)'
+      value={title}
+      onChange = {(e) => setTitle(e.target.value)}
+      />
+
+      <input type="text" placeholder='Subjected To (Eg. Authority, Department, Region)'
+      value={sub}
+      onChange = {(e) => setSub(e.target.value)}
+      />
+
+      <input type="text"
+      placeholder='Content here'
+      value={body}
+      onChange = {(e) => setBody(e.target.value)}
+      />
+      <div className="file-field input-field">
+
+        <div>
+          {/* <span>Upload Image</span> */}
+          <input type="file" 
+          onChange={(e)=> setImage(e.target.files[0])}
+          />
+        </div>
+          <div className="file-path-wrapper">
+            <input placeholder='Upload Image' className="file-path validate" type="text" />
+          </div>
+      </div>
+
+      <button className='sub'
+      style={{backgroundColor:"#1DA1F2", color:"white", fontWeight:"700", border:"none",
+      padding:"8px", borderRadius:"5px"}}
+      onClick={()=>PostDetails()}
+      >
+      Issue
+      </button>
+    </div>
       {
         data.map(item =>{
           return( 

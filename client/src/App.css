@@ -25,6 +25,18 @@
     width: 50vw;
 }
 
+.more{
+    border: 1px solid silver;
+    /* width: 100%; */
+    width: 50vw;
+}
+
+.Issue{
+    border: 1px solid silver;
+    /* width: 100%; */
+    width: 50vw;
+}
+
 .signin{
     width: 50vw;
     /* background-color: red; */
