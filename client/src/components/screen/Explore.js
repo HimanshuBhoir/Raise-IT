@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useRef} from 'react'
 import useState from 'react-hook-use-state';
 import "./Home.css"
-import "./Home"
+import "./Explore.css"
 import { UserContext } from '../../App'
 import {Link} from 'react-router-dom'
 import Issue from './post';
@@ -147,33 +147,11 @@ function Explore() {
   return (
   <>
     <div className='home' style={{width:(width < 450 ? "80vw" : "50vw")}}>
-      <h5 style={{paddingLeft:"5px"}}>Explore</h5>
 
-      <button data-target="modal1" class="btn modal-trigger">Search</button>
-      {/* <div id="modal1" className="modal" ref={searchModel}>
-          <div className="modal-content">
-            <input type="text" 
-              placeholder='Search User'
-              value={search}
-              onChange={(e) => fetchUsers(e.target.value)} 
-            />
+      <h5 style={{paddingLeft:"5px", alignItems:"flex-end"}}>Explore
+      <button data-target="modal1" class="issue modal-trigger" style={{marginRight:"10px",float:"right"}}>Search</button>
+      </h5>
 
-            <ul class="collection">
-              {userDetails.map(item => {
-                return(
-                  <>
-                    <button onClick={() => navigate("/profile/"+item._id)}>{item.name}</button>
-                    <hr/>
-                  </>
-                ) 
-              })}
-            </ul> */}
-
-          {/* </div>
-          <div className="modal-footer">
-          <button> Close </button>          
-          </div>
-        </div> */}
       {
         data.map(item =>{
           return( 
@@ -224,8 +202,8 @@ function Explore() {
               }
               </div>
               <div>
-              <h6 className='cmtlen' style={{float: "right"}}>{item.comments.length} comments</h6>
-              <h6>{item.likes.length} likes</h6>
+              <text>{item.likes.length} likes</text>
+              <text className='cmtlen' style={{float: "right"}}>{item.comments.length} comments</text>
               </div>  
                           
               <form onSubmit={(e) => {

@@ -63,30 +63,42 @@ function ProfFeed() {
   return (
     <div className='profile' style={{width:(window.innerWidth < 450 ? "80vw" : "50vw")}}>
       <h5 style={{marginLeft:"10px"}}>Profile</h5>
-      <br/>
+      {/* <br/> */}
       <div className='dec'>
-      <div className='prof'>
-        <img src={state?state.photo:"loading"} 
-          style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:"200px", height:"200px", borderRadius:"50%"}} />
-           
-           <div className='desc'>
-           <h4>{state?state.name:"loading"}</h4>
-            <div className="file-field input-field">
-            <i className='material-icons' style={{float: "right"}} 
-                onClick={()=> {}}
-                >create</i> 
+      <div className='prof' style={{justifyContent:"center"}}>
+      <div>
+      <div className="file-field input-field">
             <div>
                   <input type="file" 
                   onChange={(e)=> setImage(e.target.files[0])}
                   />
                   </div>
-                    <div className="file-path-wrapper">
-                      <input className="file-path validate" type="text"/>
+                    <div className="file-path-wrapper" style={{display:"flex"}}>
+                    <img src={state?state.photo:"loading"} 
+          style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:"200px", height:"200px", borderRadius:"50%"}} />
+                      {/* <input className="file-path validate" type="text" maxLength={6} /> */}
+                      
+                
                     </div>
+                    
             </div>
-            <button onClick={() => updatePhoto()}> Update</button>
-            <h6>{mypics.length}posts</h6>
-            <h6>{state?state.followers.length:"loading"} marchers</h6>
+            
+           </div>
+           <div className='desc' style={{paddingTop:"20px"}}>
+           <h5>{state?state.name:"loading"}</h5>
+            
+            {/* <br/> */}
+            {/* <br/> */}
+            <text className='dss'>{mypics.length}Posts</text>
+            <br/>
+            <text className='dss'>{state?state.followers.length:"loading"} Marchers</text>
+            <br/>
+            <button
+            style={{display:"flex", marginTop:'10px',gap:"5px"}}
+            onClick={() => updatePhoto()}>
+              <i class="tiny material-icons">create</i>
+              Edit
+            </button>
            </div>
            
       

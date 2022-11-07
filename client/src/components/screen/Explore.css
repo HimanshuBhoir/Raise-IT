@@ -2,3 +2,12 @@
     margin-bottom: 1%;
     padding-bottom: 3%;
 }
+
+.sr{
+    /* text-align: right; */
+    /* align-items: right; */
+    /* float: right; */
+    align-content: right;
+    /* background: red; */
+    border: none;
+}

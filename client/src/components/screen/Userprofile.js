@@ -88,23 +88,27 @@ function Profile() {
     ? 
       <div className='userprofile' style={{width:(window.innerWidth < 450 ? "80vw" : "50vw")}} >
 
-        <div className='pro'>
+        <div className='pro' style={{justifyContent:"center"}}>
           <img className='ph' src={userProfile.user.photo} 
-              style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:"200px", height:"200px", borderRadius:"50%"}} 
+              style={{marginRight:"10px",width:"200px", height:"200px", borderRadius:"50%"}} 
               />
-          <div>
-          <h4>{userProfile.user.name}</h4>
+          <div style={{paddingTop:"20px"}}>
+          <h5>{userProfile.user.name}</h5>
+          {/* <br/> */}
+          <text className='dss'>{userProfile.posts.length} Posts</text>
           <br/>
-          <h5>{userProfile.posts.length} posts</h5>
-            <h5>{userProfile.user.followers.length} marchers</h5>
+          <text className='dss'>{userProfile.user.followers.length} marchers</text>
             {/* <h5>{userProfile.user.following.length} following</h5> */}
+          <br/>
+          <br/>
             {showfollow
             ?
-            <button 
+            <button className='issue'
             onClick={() => followUser()}
             >Follow</button>
             :
-            <button onClick={() => unfollowUser()}>Unfollow</button>
+            <button className='issue'
+            onClick={() => unfollowUser()}>Unfollow</button>
             }
           </div>
         </div>

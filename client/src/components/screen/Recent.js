@@ -1,11 +1,14 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../../App'
 import '../screen/Recent.css'
 
 function Recent() {
 
-const [data, setData] = useState([])
-useEffect(()=>{
+  const [data, setData] = useState([])
+  // const {state} = useContext(UserContext)
+  
+  useEffect(()=>{
     fetch('http://localhost:5000/recent',{
       headers:{
         "Authorization":"Bearer "+localStorage.getItem("jwt")
@@ -15,7 +18,7 @@ useEffect(()=>{
       // console.log(result)
       setData(result.posts)
     })
-},[])
+  },[])
 
   return (
     <div className="rec" style={{padding:"4px"}}>
@@ -26,11 +29,11 @@ useEffect(()=>{
                     <div className='pst'>
                         {/* <br/> */}
                     <img 
-                    style={{position:"fixed",width:"15%", height:"15%", borderRadius:"10px"}}
+                    style={{marginLeft:"10px",position:"fixed",width:"200px", height:"120px", borderRadius:"10px"}}
                     className='images'
                     src={item.photo} />
                     <br/>
-                    <div className='postby'>
+                    <div className='postby' style={{marginLeft:"10px"}}>
                     <text className='usrm' style={{position:"fixed"}}>
                     Posted By :
                     <Link to ={"/profile/"+item.postedById._id}>

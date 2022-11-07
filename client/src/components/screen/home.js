@@ -132,7 +132,6 @@ function Home() {
               <text className='usrnm'>{item.postedById.name}</text>
               </Link>
             {item.postedById._id == state._id && <i className='material-icons' style={{float: "right"}} 
-            
             onClick={()=> {deletePost(item._id)}}
              >delete</i>
             }
@@ -171,8 +170,10 @@ function Home() {
               }
               </div>
               <div>
-              <h6 style={{float: "right"}}>{item.comments.length} comments</h6>
-              <h6>{item.likes.length} likes</h6>
+              
+              <text>{item.likes.length} likes</text>
+              <text style={{float:"right"}}>{item.comments.length} comments</text>
+
               </div>
 
               <form onSubmit={(e) => {

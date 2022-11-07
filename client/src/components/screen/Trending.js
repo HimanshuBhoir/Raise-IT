@@ -169,8 +169,8 @@ function Trending() {
               }
               </div>
               <div>
-              <h6 style={{float: "right"}}>{item.comments.length} comments</h6>
-              <h6>{item.likes.length} likes</h6>
+              <text>{item.likes.length} likes</text>
+              <text style={{float: "right"}}>{item.comments.length} comments</text>
               </div>
 
               <form onSubmit={(e) => {

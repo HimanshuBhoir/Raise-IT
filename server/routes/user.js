@@ -88,7 +88,7 @@ router.post('/search-user',(req,res) => {
 router.get('/recom',(req,res) => {
     User.find()
     .populate('name _id')
-    .sort('count_followers')
+    .sort({"followers":-1})
     .limit(6)
     .then(user => {
         res.json({user})

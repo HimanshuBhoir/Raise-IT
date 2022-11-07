@@ -30,8 +30,9 @@ router.get('/subposts',requireLogin,(req,res) => {
 })
 
 router.get('/trendpost',requireLogin,(req,res) => {
-    Post.find()
+    Post.find({})
     .populate("postedById","_id name photo")
+    .sort("-likes")
     .then(posts => {
         res.json({posts})
     })
