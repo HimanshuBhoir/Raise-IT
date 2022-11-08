@@ -90,7 +90,7 @@ function Profile() {
 
         <div className='pro' style={{justifyContent:"center"}}>
           <img className='ph' src={userProfile.user.photo} 
-              style={{marginRight:"10px",width:"200px", height:"200px", borderRadius:"50%"}} 
+              style={{marginRight:"10px",width:(window.innerWidth<450 ? "150px" : "200px"), height:(window.innerWidth<450 ? "150px" : "200px"), borderRadius:"50%"}} 
               />
           <div style={{paddingTop:"20px"}}>
           <h5>{userProfile.user.name}</h5>

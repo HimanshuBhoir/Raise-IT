@@ -75,7 +75,7 @@ function ProfFeed() {
                   </div>
                     <div className="file-path-wrapper" style={{display:"flex"}}>
                     <img src={state?state.photo:"loading"} 
-          style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:"200px", height:"200px", borderRadius:"50%"}} />
+          style={{textAlign:"center",marginLeft:"3px",marginRight:"3px", width:(window.innerWidth<450 ? "150px" : "200px"), height:(window.innerWidth<450 ? "150px" : "200px"), borderRadius:"50%"}} />
                       {/* <input className="file-path validate" type="text" maxLength={6} /> */}
                       
                 
