@@ -137,7 +137,7 @@ function Trending() {
             <hr/>
             <div className='card-img'>
               <img 
-              style={{width:"700px", height:"350px"}}
+              style={{width:(window.innerWidth > 450 ? "700px" : "400px"), height:(window.innerWidth > 450 ? "350px" : "150px")}}
               className='images'
               src={item.photo} />
             

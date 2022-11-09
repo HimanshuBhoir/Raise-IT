@@ -93,8 +93,8 @@ function ProfFeed() {
             <br/>
             <text className='dss'>{state?state.followers.length:"loading"} Marchers</text>
             <br/>
-            <button
-            style={{display:"flex", marginTop:'10px',gap:"5px"}}
+            <button className='edt'
+            style={{border:"1px solid silver",borderRadius:"5px",display:"flex", marginTop:'10px',gap:"5px"}}
             onClick={() => updatePhoto()}>
               <i class="tiny material-icons">create</i>
               Edit

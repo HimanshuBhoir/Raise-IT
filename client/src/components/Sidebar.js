@@ -48,11 +48,16 @@ function Sidebar() {
         <Link to="/more" className='link'><SidebarOptions icon="more_horiz" text={width < 450 ? "" : "More"} /></Link>,
         // <Link to ="/post"><SidebarOptions text="Issue" className="issue" /></Link>,
         <button className="issue"
+        style={{float:(width < 450 ? "left" : "center")}}
           onClick={() => {
             navigate("/post")
           }}
         >
-          Issue
+          {width < 450
+          ? <i className='material-icons'>create</i>
+          : "Issue"
+          }
+        
         </button>
         // <button varient="outlined" className='logout fullwidth'
         //   onClick={() => {

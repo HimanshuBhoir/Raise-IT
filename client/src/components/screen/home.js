@@ -139,7 +139,7 @@ function Home() {
             <hr/>
             <div className='card-img'>
               <img 
-              style={{width:"700px", height:"350px"}}
+              style={{width:(width > 450 ? "700px" : "400px"), height:(width > 450 ? "350px" : "150px")}}
               className='images'
               src={item.photo} />
             
