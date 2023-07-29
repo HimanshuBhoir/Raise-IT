@@ -39,7 +39,7 @@ function Reports() {
       console.log(err)
     })
 
-    fetch("http://localhost:5000/createpost",{
+    fetch("https://raise-it-1li7.onrender.com/createpost",{
       method:"post",
       headers:{
         "Content-Type":"application/json",
@@ -65,7 +65,7 @@ function Reports() {
   }
   
   useEffect(()=>{
-    fetch('http://localhost:5000/mypost',{
+    fetch('https://raise-it-1li7.onrender.com/mypost',{
       headers:{
         "Authorization":"Bearer "+localStorage.getItem("jwt")
       }
@@ -77,7 +77,7 @@ function Reports() {
   },[])
 
   const likedPost = (id) =>{
-    fetch('http://localhost:5000/like',{
+    fetch('https://raise-it-1li7.onrender.com/like',{
       method: "put",
       headers:{
         "Content-Type":"application/json",
@@ -101,7 +101,7 @@ function Reports() {
   }
 
   const unlikedPost = (id) =>{
-    fetch('http://localhost:5000/unlike',{
+    fetch('https://raise-it-1li7.onrender.com/unlike',{
       method: "put",
       headers:{
         "Content-Type":"application/json",
@@ -125,7 +125,7 @@ function Reports() {
   }
 
   const makeComment =(text, postedById) =>{
-    fetch('http://localhost:5000/comment',{
+    fetch('https://raise-it-1li7.onrender.com/comment',{
       method: "put",
       headers:{
         "Content-Type":"application/json",
@@ -152,7 +152,7 @@ function Reports() {
   }
 
   const deletePost = (postid) => {
-    fetch(`http://localhost:5000/deletepost/${postid}`,{
+    fetch(`https://raise-it-1li7.onrender.com/deletepost/${postid}`,{
       method: "delete",
       headers:{
         Authorization:"Bearer " + localStorage.getItem("jwt")

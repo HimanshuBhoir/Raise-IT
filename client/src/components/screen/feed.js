@@ -10,7 +10,7 @@ function Feed() {
   const [data, setData] = useState([])
   const {state, dispatch} = useContext(UserContext) 
   useEffect(()=>{
-    fetch('http://localhost:5000/allpost',{
+    fetch('https://raise-it-1li7.onrender.com/allpost',{
       headers:{
         "Authorization":"Bearer "+localStorage.getItem("jwt")
       }
@@ -22,7 +22,7 @@ function Feed() {
   },[])
 
   const likedPost = (id) =>{
-    fetch('http://localhost:5000/like',{
+    fetch('https://raise-it-1li7.onrender.com/like',{
       method: "put",
       headers:{
         "Content-Type":"application/json",
@@ -46,7 +46,7 @@ function Feed() {
   }
 
   const unlikedPost = (id) =>{
-    fetch('http://localhost:5000/unlike',{
+    fetch('https://raise-it-1li7.onrender.com/unlike',{
       method: "put",
       headers:{
         "Content-Type":"application/json",
@@ -70,7 +70,7 @@ function Feed() {
   }
 
   const makeComment =(text, postedById) =>{
-    fetch('http://localhost:5000/comment',{
+    fetch('https://raise-it-1li7.onrender.com/comment',{
       method: "put",
       headers:{
         "Content-Type":"application/json",
@@ -97,7 +97,7 @@ function Feed() {
   }
 
   const deletePost = (postid) => {
-    fetch(`http://localhost:5000/deletepost/${postid}`,{
+    fetch(`https://raise-it-1li7.onrender.com/deletepost/${postid}`,{
       method: "delete",
       headers:{
         Authorization:"Bearer " + localStorage.getItem("jwt")

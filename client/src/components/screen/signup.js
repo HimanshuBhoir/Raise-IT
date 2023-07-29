@@ -24,7 +24,7 @@ function Signup() {
   }
 
   const uploadFields = () => {
-    fetch("http://localhost:5000/signup",{
+    fetch("https://raise-it-1li7.onrender.com/signup",{
       method:"post",
       headers:{
         "Content-Type":"application/json"
@@ -62,7 +62,7 @@ function Signup() {
       console.log(err)
     })
 
-    fetch("http://localhost:5000/signup",{
+    fetch("https://raise-it-1li7.onrender.com/signup",{
       method:"post",
       headers:{
         "Content-Type":"application/json",

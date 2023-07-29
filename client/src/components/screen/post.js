@@ -34,7 +34,7 @@ function Issue() {
       console.log(err)
     })
 
-    fetch("http://localhost:5000/createpost",{
+    fetch("https://raise-it-1li7.onrender.com/createpost",{
       method:"post",
       headers:{
         "Content-Type":"application/json",

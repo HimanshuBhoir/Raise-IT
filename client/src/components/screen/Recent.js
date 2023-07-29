@@ -9,7 +9,7 @@ function Recent() {
   // const {state} = useContext(UserContext)
   
   useEffect(()=>{
-    fetch('http://localhost:5000/recent',{
+    fetch('https://raise-it-1li7.onrender.com/recent',{
       headers:{
         "Authorization":"Bearer "+localStorage.getItem("jwt")
       }

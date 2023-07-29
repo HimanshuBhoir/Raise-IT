@@ -8,7 +8,7 @@
 //     const [mypics, setPics] = useState([])
 //     const {state} = useContext(UserContext)
 //     useEffect(() => {
-//         fetch('http://localhost:5000/mypost',{
+//         fetch('https://raise-it-1li7.onrender.com/mypost',{
 //         headers:{
 //             "Authorization": "Bearer " + localStorage.getItem("jwt")
 //         }

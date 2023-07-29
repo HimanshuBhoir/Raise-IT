@@ -13,7 +13,7 @@ function Profile() {
     const [showfollow, setShowfollow] = useState(state?!state.following.includes(userid):true)
     // console.log(userid)
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${userid}`,{
+        fetch(`https://raise-it-1li7.onrender.com/user/${userid}`,{
         headers:{
             "Authorization": "Bearer " + localStorage.getItem("jwt")
         }
@@ -25,7 +25,7 @@ function Profile() {
     },[])
 
     const followUser = (id) =>{
-      fetch('http://localhost:5000/follow',{
+      fetch('https://raise-it-1li7.onrender.com/follow',{
         method: "put",
         headers:{
           "Content-Type":"application/json",
@@ -54,7 +54,7 @@ function Profile() {
 
 
     const unfollowUser = (id) =>{
-      fetch('http://localhost:5000/unfollow',{
+      fetch('https://raise-it-1li7.onrender.com/unfollow',{
         method: "put",
         headers:{
           "Content-Type":"application/json",

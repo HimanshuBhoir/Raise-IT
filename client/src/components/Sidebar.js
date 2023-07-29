@@ -20,7 +20,7 @@ function Sidebar() {
 
   const fetchUsers = (query) => {
     setSearch(query)
-    fetch('http://localhost:5000/search-user', {
+    fetch('https://raise-it-1li7.onrender.com/search-user', {
       method: "post",
       headers: {
         "Content-Type": "application/json",

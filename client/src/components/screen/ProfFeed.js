@@ -13,7 +13,7 @@ function ProfFeed() {
     const [image, setImage] = useState("")
     const [photo, setPhoto] = useState(undefined)
     useEffect(() => {
-        fetch('http://localhost:5000/mypost',{
+        fetch('https://raise-it-1li7.onrender.com/mypost',{
         headers:{
             "Authorization": "Bearer " + localStorage.getItem("jwt")
         }
@@ -39,7 +39,7 @@ function ProfFeed() {
           console.log("uploaded" + data.url)
           localStorage.setItem("user",JSON.stringify({...state,photo:data.url}))
           dispatch({type:"UPDATEPIC",payload:data.url})
-          fetch("http://localhost:5000/updatepic",{
+          fetch("https://raise-it-1li7.onrender.com/updatepic",{
           method:"put",
           headers:{
             "Content-Type":"application/json",
