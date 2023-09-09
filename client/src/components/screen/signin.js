@@ -20,7 +20,7 @@ function Signin() {
         "Content-Type":"application/json"
       },
       body:JSON.stringify({
-        name,
+        name, 
         password
       })
     }).then(res => res.json())
